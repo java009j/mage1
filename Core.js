@@ -7,6 +7,7 @@ const util = require("util");
 const { promisify } = require('util');
 const setTimeoutPromise = promisify(setTimeout);
 const chalk = require("chalk");
+const sharp = require('sharp');
 const axios = require('axios');
 const { spawn, exec, execSync } = require("child_process");
 const moment = require("moment-timezone");
@@ -2001,7 +2002,128 @@ Typed *surrender* to surrender and admited defeat`
         }
       }
         break;
+/////////////////////////////////////////////////////////////////////////////////
+         case 'yuki':
+ case 'cai':
+ case 'يوكي':
+ case 'y' :{
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
 
+        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
+
+        try {
+          const hoshino = await axios.get(`https://skizo.tech/api/cai/chat?apikey=Trama&characterId=knKgnFDJOVZ4McRPxM7ZoomKNDKsPcEmgOhJxBb9uCQ&sessionId=6A6EaWassppBUnKec0_f1hwRppbzHFruJTS7nmT2Zk0&token=c4192699ccbd83ce7c4177cabe5efd397c2ba4a9&text=${encodeURIComponent(budy)}`);
+          const yume = hoshino.data;
+          let message = "";
+
+          if (yume.success === true) {
+            message = yume.result.text;
+          } else {
+            return reply("Sorry, my circuits has been fried..wait a bit till i get hold of myself.");
+          }
+
+          const me = m.sender;
+          await A17.sendMessage(m.chat, { text: message, mentions: [me] }, { quoted: m });
+
+        } catch (error) {
+          console.error(error);
+          reply("An error occurred while fetching the response from the API.");
+        }
+      }
+        break; 
+
+ case 'sd' :{
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+
+        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
+
+        try {
+          const hoshino = await axios.get(`https://skizo.tech/api/simi?apikey=arona&level=8&text=${encodeURIComponent(budy)}`);
+          const yume = hoshino.data;
+          let message = "";
+
+          if (yume.success === true) {
+            message = yume.result.text;
+          } else {
+            return reply("Sorry, my circuits has been fried..wait a bit till i get hold of myself.");
+          }
+
+          const me = m.sender;
+          await A17.sendMessage(m.chat, { text: message, mentions: [me] }, { quoted: m });
+
+        } catch (error) {
+          console.error(error);
+          reply("An error occurred while fetching the response from the API.");
+        }
+      }
+        break; 
+
+         case "enhance" :
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+
+        let { GraphOrg } = require("./lib/uploader");
+        if (!m.quoted) {
+          //
+          A17.sendMessage(from, { react: { text: "❔", key: m.key } })
+          return m.reply(
+            `With caption not working, first send an *Image* / *Video* to generate a link! then tag with *${prefix}tourl*`
+          );
+        }
+        let media6 = await A17.downloadAndSaveMediaMessage(quoted);
+        if (/image/.test(mime)) {
+          //
+          let anu = await GraphOrg(media5);
+          serika = await getBuffer(`https://skizo.tech/api/remini?apikey=Trama&url=${util.format(anu)}`)
+          A17.sendMessage(from, { image: serika }, { quoted: m })
+        } else if (/video/.test(mime)) {
+          //
+          try {
+            let anu = await GraphOrg(media5);
+          } catch (e) {
+            //
+            await fs.unlinkSync(media5);
+            return A17.sendMessage(
+              m.from,
+              {
+                text: `*Your video size is too big!*\n\n*Max video size:* 5MB`,
+              },
+              { quoted: m }
+            );
+          }
+        } else {
+          //
+          return m.reply(
+            `Plese provide an *Image* / *Video* to generate a link!`
+          );
+        }
+        await fs.unlinkSync(media5);
+        break;
+
+         case 'an':{
+
+        if (isBanChat) return reply(mess.bangc);
+         A17.sendMessage(from, { react: { text: "🫡", key: m.key } })
+          let { GraphOrg } = require("./lib/uploader");
+
+        if (!quoted) return `*Send/reply Image With Caption* ${prefix + command}`
+        if (!/image/.test(mime)) return `*Send/reply Image With Caption* ${prefix + command}`
+        let media = await A17.downloadAndSaveMediaMessage(quoted)
+        let anu = await GraphOrg(media);
+          const typ = ['Trama', 'Yuki', 'Mage'];
+        const api = typ[Math.floor(Math.random() * typ.length)];
+        let serika = await getBuffer(`https://skizo.tech/api/toanime?apikey=${api}&url=${util.format(anu)}`) 
+        let shiroko = await axios.get(`https://skizo.tech/api/toanime?apikey=${api}&url=${util.format(anu)} `)
+        const sensei = shiroko.data.status;
+        if (sensei === 400) {
+            return reply("oops..daily limit reached..please wait for tomorrow reset");
+          } else {      
+        await A17.sendMessage(m.chat, { image: serika }, { quoted: m })
+      }
+         }
+        break; 
 
 
       //-----------------------------------------------------------------------------------------------------------------------------------//
