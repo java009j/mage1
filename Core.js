@@ -45,49 +45,6 @@ const os = require('os');       // for os info
 
 const gis = require("g-i-s");
 const { MessageType } = require('@whiskeysockets/baileys');
-const {
-  FajarNews,
-  BBCNews,
-  metroNews,
-  CNNNews,
-  iNews,
-  KumparanNews,
-  TribunNews,
-  DailyNews,
-  DetikNews,
-  OkezoneNews,
-  CNBCNews,
-  KompasNews,
-  SindoNews,
-  TempoNews,
-  IndozoneNews,
-  AntaraNews,
-  RepublikaNews,
-  VivaNews,
-  KontanNews,
-  MerdekaNews,
-  KomikuSearch,
-  AniPlanetSearch,
-  KomikFoxSearch,
-  KomikStationSearch,
-  MangakuSearch,
-  KiryuuSearch,
-  KissMangaSearch,
-  KlikMangaSearch,
-  PalingMurah,
-  LayarKaca21,
-  AminoApps,
-  Mangatoon,
-  WAModsSearch,
-  Emojis,
-  CoronaInfo,
-  JalanTikusMeme,
-  Cerpen,
-  Quotes,
-  Couples,
-  Darkjokes
-} // require("dhn-api");
-//"parse-ms": "^1.1.0",
 
 
 //
