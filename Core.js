@@ -1,14 +1,13 @@
 process.on("uncaughtException", console.error);
 require("./config");
-
 const fs = require('fs');
 const pm2 = require('pm2');
 const util = require("util");
 const { promisify } = require('util');
 const setTimeoutPromise = promisify(setTimeout);
 const chalk = require("chalk");
-const sharp = require('sharp');
 const axios = require('axios');
+const sharp = require('sharp');
 const { spawn, exec, execSync } = require("child_process");
 const moment = require("moment-timezone");
 const { EmojiAPI } = require("emoji-api");
@@ -25,37 +24,71 @@ const currentDay = new Intl.DateTimeFormat('en-US', options).format(currentDate)
 
 const speed = require('performance-now');
 const eco = require('discord-mongoose-economy');
+const thiccysapi = require('textmaker-thiccy');
 // const ffmpeg = require('fluent-ffmpeg');
 // const ffmpegPath = require('ffmpeg-static').path;
 // ffmpeg.setFfmpegPath(ffmpegPath);
+const maker = require('mumaker');
 const Jimp = require('jimp');  // for full dp etc.
 const modapk = require("tod-api");
 const { hentai } = require('./lib/scraper2.js');
 const { instadl } = require('./lib/instadl');
-const ty = eco.connect('mongodb+srv://Arch:1t6l2G0r6nagLlOb@cluster0.gedh4.mongodb.net/?retryWrites=true&w=majority');
+const ty = eco.connect('mongodb+srv://trama1:trama1@cluster0.0axhygx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 const { isLimit, limitAdd, getLimit, giveLimit, kurangBalance, getBalance, isGame, gameAdd, givegame, cekGLimit } = require('./lib/limit.js');
 const githubstalk = require('./lib/githubstalk');
 let { covid } = require('./lib/covid.js');
 const { Gempa } = require("./lib/gempa.js");
-const getLyrics = require("@fantox01/lyrics-scraper");
+
 const spaceemojis = ["🌌", "🌠", "🚀", "🪐", "🌟"];     // list of emojis for Space CMDs.
 const manyemojis = ["😄", "👍", "👏", "👌", "🥇", "🌟", "🎉", "🙌", "🤩", "💯", "🔥", "✨", "🚀", "💖", "🌈", "🌞", "🌠", "🌼", "💪", "😎", "💫", "💓", "🎈", "🎁", "🍾", "🎊", "🥳", "👑", "🌺", "🌻", "🌸"];
-const os = require("node:os");       // for os info
+const os = require('os');       // for os info
+
 const gis = require("g-i-s");
-
-const { downloadContentFromMessage,
-  WA_DEFAULT_EPHEMERAL,
-  proto, jid,
-  getContentType,
-  generateWAMessageContent,
-  generateWAMessageFromContent,
-  BufferJSON,
-  prepareWAMessageMedia,
-  MessageType,
-  areJidsSameUser, } = require('@whiskeysockets/baileys');
-
-
+const { MessageType } = require('@whiskeysockets/baileys');
+const {
+  FajarNews,
+  BBCNews,
+  metroNews,
+  CNNNews,
+  iNews,
+  KumparanNews,
+  TribunNews,
+  DailyNews,
+  DetikNews,
+  OkezoneNews,
+  CNBCNews,
+  KompasNews,
+  SindoNews,
+  TempoNews,
+  IndozoneNews,
+  AntaraNews,
+  RepublikaNews,
+  VivaNews,
+  KontanNews,
+  MerdekaNews,
+  KomikuSearch,
+  AniPlanetSearch,
+  KomikFoxSearch,
+  KomikStationSearch,
+  MangakuSearch,
+  KiryuuSearch,
+  KissMangaSearch,
+  KlikMangaSearch,
+  PalingMurah,
+  LayarKaca21,
+  AminoApps,
+  Mangatoon,
+  WAModsSearch,
+  Emojis,
+  CoronaInfo,
+  JalanTikusMeme,
+  Cerpen,
+  Quotes,
+  Couples,
+  Darkjokes
+} = require("dhn-api");
 //"parse-ms": "^1.1.0",
+
 
 //
 let nowtime = '';
@@ -211,6 +244,7 @@ module.exports = A17 = async (A17, m, chatUpdate, store) => {
     const args = body.trim().split(/ +/).slice(1)
     const pushname = m.pushName || "No Name"
     const botNumber = await A17.decodeJid(A17.user.id)
+      const isyuki = [botNumber, ...global.yuki].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
     const isCreator = [botNumber, ...global.Owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
     const itsMe = m.sender == botNumber ? true : false
     const text = args.join(" ")
@@ -250,6 +284,7 @@ module.exports = A17 = async (A17, m, chatUpdate, store) => {
 
     const isQuotedVideo = m.mtype === 'extendedTextMessage' && content.includes('videoMessage')
     const isQuotedAudio = m.mtype === 'extendedTextMessage' && content.includes('audioMessage')
+
 
 
 
