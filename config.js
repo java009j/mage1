@@ -39,6 +39,7 @@ global.packname = process.env.PACK_NAME || "Yuki Bot";
 global.author = "By: Trama";
 global.BotSourceCode = "https://github.com/trama-008/A17";
 global.SupportGroupLink = "https://chat.whatsapp.com";
+global.yuki = ["249991672637"];
 
 
 //
