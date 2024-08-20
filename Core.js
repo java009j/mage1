@@ -86,7 +86,7 @@ const {
   Quotes,
   Couples,
   Darkjokes
-} = require("dhn-api");
+} = // require("dhn-api");
 //"parse-ms": "^1.1.0",
 
 
