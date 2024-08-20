@@ -91,23 +91,42 @@ const {
 
 
 //
-let nowtime = '';
 
-if (time2 < "05:00:00") {
-  nowtime = 'Good night 🏙';
-} else if (time2 < "11:00:00") {
-  nowtime = 'Good morning 🌅';
-} else if (time2 < "15:00:00") {
-  nowtime = 'Good afternoon 🏞';
-} else if (time2 < "18:00:00") {
-  nowtime = 'Good evening 🌇';
-} else if (time2 < "19:00:00") {
-  nowtime = 'Good evening 🌆';
-} else {
-  nowtime = 'Good night 🌌';
+if (time2 < "23:59:00") {
+
+  var nowtime = 'Good night 🌌'
+
 }
 
+if (time2 < "19:00:00") {
 
+  var nowtime = 'Good afternoon 🌆'
+
+}
+
+if (time2 < "18:00:00") {
+
+  var nowtime = 'Good afternoon 🌇'
+
+}
+
+if (time2 < "15:00:00") {
+
+  var nowtime = 'Good afternoon 🏞'
+
+}
+
+if (time2 < "11:00:00") {
+
+  var nowtime = 'Good morning 🌅'
+
+}
+
+if (time2 < "05:00:00") {
+
+  var nowtime = 'Good night 🏙'
+
+}
 
 
 // 
