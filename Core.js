@@ -4297,7 +4297,7 @@ Typed *surrender* to surrender and admited defeat`
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
 
-        let { GraphOrg } = require("./lib/uploader");
+        //let { GraphOrg } = require("./lib/uploader");
         if (!m.quoted) {
           //
           A17.sendMessage(from, { react: { text: "❔", key: m.key } })
