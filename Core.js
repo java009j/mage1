@@ -1625,7 +1625,7 @@ All Rights Reserved 🅨🅝🅑𖤼™ 2024`)
       break;
 
 
-    case 'transfer': case 'give': {
+    case 'transfer': case 'give': case 'تحويل' : {
       if (isBan) return reply(mess.banned);
       if (isBanChat) return reply(mess.bangc);
       if (!m.isGroup) return reply(mess.grouponly)
@@ -1642,6 +1642,7 @@ All Rights Reserved 🅨🅝🅑𖤼™ 2024`)
       const cara = "cara"
       const user1 = m.sender
       const user2 = target
+      const trxid = Math.floor(1000000000000 + Math.random() * 99090000000);
       const word = value[0];
       const code = value[1];
       let d = parseInt(word)
