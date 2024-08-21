@@ -44,7 +44,16 @@ const manyemojis = ["😄", "👍", "👏", "👌", "🥇", "🌟", "🎉", "�
 const os = require('os');       // for os info
 
 const gis = require("g-i-s");
-const { MessageType } = require('@whiskeysockets/baileys');
+const { downloadContentFromMessage,
+  WA_DEFAULT_EPHEMERAL,
+  proto, jid,
+  getContentType,
+  generateWAMessageContent,
+  generateWAMessageFromContent,
+  BufferJSON,
+  prepareWAMessageMedia,
+  MessageType,
+  areJidsSameUser, } = require('@whiskeysockets/baileys');  
 
 
 //
