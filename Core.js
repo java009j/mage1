@@ -2610,6 +2610,11 @@ case 'جمال':
       }
         break;
 /////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+		    
          case 'yuki':
  case 'cai':
  case 'يوكي':
@@ -2670,8 +2675,6 @@ case 'جمال':
          case "enhance" :
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
-
-        let { GraphOrg } = require("./lib/uploader");
         if (!m.quoted) {
           //
           A17.sendMessage(from, { react: { text: "❔", key: m.key } })
@@ -4900,7 +4903,7 @@ case 'جمال':
       // break;
 
 
-      case "tourl": case 'tolink':
+    /*  case "tourl": case 'tolink':
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
 
@@ -4940,8 +4943,8 @@ case 'جمال':
           );
         }
         await fs.unlinkSync(media5);
-        break;
-
+        break;  */
+                      
 
 
       //-------------------------------------------------------------------------------------------------------------------------------------//
