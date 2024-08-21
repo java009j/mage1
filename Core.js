@@ -709,7 +709,7 @@ Typed *surrender* to surrender and admited defeat`
 
 
     
- let smallinput = budy.toLowerCase()
+
     
     const responses = {
 
@@ -728,12 +728,15 @@ Typed *surrender* to surrender and admited defeat`
 
     };
 
-    const smallinput = budy.toLowerCase();
+    
 
     if (responses.hasOwnProperty(smallinput)) {
       reply(responses[smallinput]);
     }
 
+
+ let smallinput = budy.toLowerCase()
+	  
     if (smallinput==('يوكي')) {
       if (isBan) return reply(`آسفة بس انت محظور من البوت`);
       if (isBanChat) return reply(mess.bangc);
