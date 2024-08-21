@@ -26,7 +26,7 @@ global.github = "https://github.com/Trama-007";
 
 
 // Default prefix
-global.prefa = process.env.PREFIX ? process.env.PREFIX.split("#") : ["."];
+global.prefa = process.env.PREFIX ? process.env.PREFIX.split("#") : ["#"];
 
 
 // Owner information
