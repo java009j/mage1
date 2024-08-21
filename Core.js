@@ -1231,7 +1231,7 @@ case 'chatgpt':
 	  //////////////////////////////////////////////
 	  
 
-	  case 'toanime':{
+	  case 'toanime': case 'انمي' : {
 
         if (isBanChat) return reply(mess.bangc);
          A17.sendMessage(from, { react: { text: "🫡", key: m.key } })
@@ -2672,69 +2672,9 @@ case 'جمال':
       }
         break; 
 
-         case "enhance" :
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.quoted) {
-          //
-          A17.sendMessage(from, { react: { text: "❔", key: m.key } })
-          return m.reply(
-            `With caption not working, first send an *Image* / *Video* to generate a link! then tag with *${prefix}tourl*`
-          );
-        }
-        let media6 = await A17.downloadAndSaveMediaMessage(quoted);
-        if (/image/.test(mime)) {
-          //
-          let anu = await GraphOrg(media5);
-          serika = await getBuffer(`https://skizo.tech/api/remini?apikey=Trama&url=${util.format(anu)}`)
-          A17.sendMessage(from, { image: serika }, { quoted: m })
-        } else if (/video/.test(mime)) {
-          //
-          try {
-            let anu = await GraphOrg(media5);
-          } catch (e) {
-            //
-            await fs.unlinkSync(media5);
-            return A17.sendMessage(
-              m.from,
-              {
-                text: `*Your video size is too big!*\n\n*Max video size:* 5MB`,
-              },
-              { quoted: m }
-            );
-          }
-        } else {
-          //
-          return m.reply(
-            `Plese provide an *Image* / *Video* to generate a link!`
-          );
-        }
-        await fs.unlinkSync(media5);
-        break;
+      
 
-         case 'an':{
-
-        if (isBanChat) return reply(mess.bangc);
-         A17.sendMessage(from, { react: { text: "🫡", key: m.key } })
-          let { GraphOrg } = require("./lib/uploader");
-
-        if (!quoted) return `*Send/reply Image With Caption* ${prefix + command}`
-        if (!/image/.test(mime)) return `*Send/reply Image With Caption* ${prefix + command}`
-        let media = await A17.downloadAndSaveMediaMessage(quoted)
-        let anu = await GraphOrg(media);
-          const typ = ['Trama', 'Yuki', 'Mage'];
-        const api = typ[Math.floor(Math.random() * typ.length)];
-        let serika = await getBuffer(`https://skizo.tech/api/toanime?apikey=${api}&url=${util.format(anu)}`) 
-        let shiroko = await axios.get(`https://skizo.tech/api/toanime?apikey=${api}&url=${util.format(anu)} `)
-        const sensei = shiroko.data.status;
-        if (sensei === 400) {
-            return reply("oops..daily limit reached..please wait for tomorrow reset");
-          } else {      
-        await A17.sendMessage(m.chat, { image: serika }, { quoted: m })
-      }
-         }
-        break; 
-
+      
 
       //-----------------------------------------------------------------------------------------------------------------------------------//
 
@@ -4800,24 +4740,7 @@ case 'جمال':
 
 
       //
-      case 'toimage': case 'makeimg': case 'toimg': {
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        A17.sendMessage(from, { react: { text: "🪄", key: m.key } })
-        if (!m.quoted) return reply('reply Image')
-        if (!/webp/.test(mime)) return reply(`reply sticker with caption *${prefix + command}*`)
-        reply(mess.waiting)
-        let media = await A17.downloadAndSaveMediaMessage(quoted)
-        let ran = await getRandom('.png')
-        exec(`ffmpeg -i ${media} ${ran}`, (err) => {
-          fs.unlinkSync(media)
-          if (err) throw err
-          let buffer = fs.readFileSync(ran)
-          A17.sendMessage(m.chat, { image: buffer }, { quoted: m })
-          fs.unlinkSync(ran)
-        })
-      }
-        break;
+    
 
 
       case 'tomp4': case 'makemp4': case 'makevideo': case 'tovideo': {
@@ -6246,37 +6169,7 @@ _Click the button below to download_`
 
 
 
-      case 'awesomecheck':
-      case 'greatcheck':
-      case 'gaycheck':
-      case 'cutecheck':
-      case 'lesbiancheck':
-      case 'hornycheck':
-      case 'prettycheck':
-      case 'lovelycheck':
-      case 'uglycheck':
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        A17.sendMessage(from, { react: { text: "😺", key: m.key } })
-
-        if (!text) return reply(`Tag Someone, Example : ${prefix + command} @Kai`)
-        const sangeh = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '100']
-        const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
-        A17.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${sange}%*` }, { quoted: m })
-        break;
-
-
-      case 'charactercheck':
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        A17.sendMessage(from, { react: { text: "🤧", key: m.key } })
-
-        if (!text) return reply(`Tag Someone, Example : ${prefix + command} @Kai`)
-        const A17tttt = ['Compassionate', 'Generous', 'Grumpy', 'Forgiving', 'Obedient', 'Good', 'Simp', 'Kind-Hearted', 'patient', 'UwU', 'top, anyway', 'Helpful']
-        const taky = A17tttt[Math.floor(Math.random() * A17tttt.length)]
-        A17.sendMessage(from, { text: `Character Check : ${q}\nAnswer : *${taky}*` }, { quoted: m })
-        break;
-
+    
 
       //
       case 'dare':
