@@ -1151,7 +1151,7 @@ case 'chatgpt':
 
 
 		    
-      case 'yuki':
+    /*  case 'yuki':
       case 'cai':
        {
         if (isBan) return reply(mess.banned);
@@ -1184,7 +1184,7 @@ case 'chatgpt':
           reply("An error occurred while fetching the response from the API.");
         }
       }
-        break;
+        break; */
 
  
       case 'dalle': case 'imgai': {
@@ -1422,21 +1422,23 @@ case 'جمال':
       const cara = "cara"
       const trxid = Math.floor(1000000000000 + Math.random() * 99090000000);
       const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
-      await reply(`_Yuki National Bank__
-      بنك يوكي الوطني
-      🅨🅝🅑 𖤼__
+      await reply(`〢━━━Yuki National Bank━━━〢
+     〢━━━بنك يوكي الوطني━━━〢
+           〢━━━𖤼🅨🅝🅑 𖤼━━━〢
       
       كشف حساب مصغر 𖤼 
       
-      ــ𖢻 اسم مالك الحساب : ${pushname}
+      ــ𖢻 اسم مالك الحساب : ${pushname} 🎩
       
-      ــ𖢻 الرصيد : ${balance.bank}
+      ــ𖢻 الرصيد : ${balance.bank}/${balance.bankCapacity} جنيه 💵
       
-      ــ𖢻 سعة الخزينة :${balance.bankCapacity}
+      ــ𖢻 سعة الخزينة :${balance.bankCapacity} 🗄️
       
-      ــ𖢻 رقم الوديعة : ${trxid}
+      ــ𖢻 رقم الوديعة : ${trxid} 🗃️
       
-      ــ𖢻 تاريخ المعاملة : ${kaidate}`);
+      ــ𖢻 تاريخ المعاملة : ${kaidate} 📆
+      
+      All Rights Reserved 🅨🅝🅑𖤼™ 2024 `);
     }
       break;
 
@@ -1457,6 +1459,7 @@ case 'جمال':
         let value = text.trim();
         let k = parseInt(value)
         const balance = await eco.balance(user, cara)
+
         switch (value) {
           case '1k':
           case '1':
@@ -1518,9 +1521,26 @@ case 'جمال':
       const texts = text.trim();
       const user = m.sender;
       const cara = 'cara'
+	const trxid = Math.floor(1000000000000 + Math.random() * 99090000000);
       const deposit = await eco.deposit(user, cara, texts);
       if (deposit.noten) return reply('عفواً ، لا تملك رصيد كافي في المحفظة!'); //if user states more than whats in his wallet
-      reply(`تم إيداع مبلغ ${deposit.amount} جنيه الى بنك يوكي بنجاح!📥`)
+      reply(`〢━━━Yuki National Bank━━━〢
+     〢━━━بنك يوكي الوطني━━━〢
+           〢━━━🅨🅝🅑 𖤼━━━〢
+
+إشـــعـــار إيــــداع 𖤼
+
+ــ𖢻 اسم مالك الحساب: ${pushname} 🎩
+
+ــ𖢻 مبلغ الإيداع: ${deposit.amount} جنيه 💵
+
+ــ𖢻 الرصيد الحالي: ${balance.bank} جنيه 💰
+
+ــ𖢻 رقم العملية: ${trxid} 🧾
+
+ــ𖢻 تاريخ المعاملة: ${kaidate} 📆
+
+All Rights Reserved 🅨🅝🅑𖤼™ 2024`)
     }
       break;
 
@@ -1625,7 +1645,7 @@ case 'جمال':
       const word = value[0];
       const code = value[1];
       let d = parseInt(word)
-      if (!d) return reply("check your text plz u r using the command in a wrong way")
+      if (!d) return reply("صيغة خاطئة! \n جرب(تحويل+المبلغ+تاق للمستلم 📝")
 
       const balance = await eco.balance(user1, cara);
       let a = (balance.wallet) < parseInt(word)
@@ -1634,7 +1654,23 @@ case 'جمال':
 
       const deduct = await eco.deduct(user1, cara, value[0]);
       const give = await eco.give(user2, cara, value[0]);
-      reply(`حولت ${value[0]} للمستلم `)
+      reply(`〢━━━Yuki National Bank━━━〢
+     〢━━━بنك يوكي الوطني━━━〢
+           〢━━━🅨🅝🅑 𖤼━━━〢
+
+إشـــعـــار تــحـــويـــل 𖤼
+
+ــ𖢻 اسم مالك الحساب: ${pushname} 🎩
+
+ــ𖢻 المبلغ المحول : ${value[0]} جنيه 💵
+
+ــ𖢻 الرصيد الحالي: ${balance.bank} جنيه 💰
+
+ــ𖢻 رقم العملية: ${trxid} 🧾
+
+ــ𖢻 تاريخ المعاملة: ${kaidate} 📆
+
+All Rights Reserved 🅨🅝🅑𖤼™ 2024`)
 
     }
       break;
