@@ -6822,7 +6822,9 @@ _Click the button below to download_`
       case 'h':
       case 'menu':
       case 'allmenu':
-      case 'listmenu': {
+      case 'listmenu':
+      case 'ا' : 
+        {
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
 
@@ -7148,7 +7150,7 @@ _Click the button below to download_`
                     text: "            Powered by A17 2024"
                   }),
                   header: proto.Message.InteractiveMessage.Header.create({
-                    ...(await prepareWAMessageMedia({ image: { url: 'https://graph.org/file/4ca10c7029fcaee1003f7.jpg' } }, { upload: A17.waUploadToServer })),
+                    ...(await prepareWAMessageMedia({ image: { url: 'https://graph.org/file/5aa9c778c5462118a2e5a.png' } }, { upload: A17.waUploadToServer })),
 
 
                     title: "                      Help Menu",
