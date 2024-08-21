@@ -1356,7 +1356,346 @@ case 'جمال':
         A17.sendMessage(from, { text: `مقياس الشخصية \n : ${q}\nAnswer : *${taky}*` }, { quoted: m })
         break;
         
+//// ECOCNOMY
 
+
+
+
+
+
+
+
+
+
+		    case 'daily': case 'claim': case 'مرتب':
+
+      {
+        if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        if (!m.isGroup) return reply(mess.grouponly)
+
+        A17.sendMessage(from, { react: { text: "💰", key: m.key } })
+        let user = m.sender
+        const cara = "cara"
+        const daily = await eco.daily(user, cara, 1500); //give 999 for daily, can be changed
+
+        if (daily.cd) return reply(`استلمت مرتب اليوم يا مدير ، تعال راجع بعد ${daily.cdL}`); //cdL is already formatted cooldown Left
+
+        reply(`تم استلام مرتب اليوم ${daily.amount} جنيه 💰`);
+      }
+      break;
+
+    case 'wallet': case 'purse':  case 'كاش': {
+
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+
+      A17.sendMessage(from, { react: { text: "💳", key: m.key } })
+
+      if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+
+      const user = m.sender
+
+      const cara = "cara"
+
+      const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
+
+      await reply(`محفظة ${pushname} 🧰 : \n \n ${balance.wallet} جنيه 💵`);
+
+    }
+
+      break;
+
+
+    case 'bank': case 'levee': case 'بنك': {
+      if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+
+      A17.sendMessage(from, { react: { text: "💳", key: m.key } })
+
+      const user = m.sender
+      const cara = "cara"
+      const trxid = Math.floor(1000000000000 + Math.random() * 99090000000);
+      const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
+      await reply(`_Yuki National Bank__
+      بنك يوكي الوطني
+      🅨🅝🅑 𖤼__
+      
+      كشف حساب مصغر 𖤼 
+      
+      ــ𖢻 اسم مالك الحساب : ${pushname}
+      
+      ــ𖢻 الرصيد : ${balance.bank}
+      
+      ــ𖢻 سعة الخزينة :${balance.bankCapacity}
+      
+      ــ𖢻 رقم الوديعة : ${trxid}
+      
+      ــ𖢻 تاريخ المعاملة : ${kaidate}`);
+    }
+      break;
+
+
+    case 'capacity': case 'bankupgrade' : case 'ترقية':
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+
+      {
+        A17.sendMessage(from, { react: { text: "💲", key: m.key } })
+
+        //if (!isCreator) return reply(mess.botowner)
+        if (!text) return reply(`💴 Bank-capacity 💳\n\n1 | 1000 sp = 💎100\n\n2 | 10000 sp = 💎1000\n\n3 | 100000 sp = 💎10000\n\nExample- ${prefix}capacity 1 OR ${prefix}bankupgrade 1000`)
+        if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+        const user = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
+        const cara = "cara"
+        let value = text.trim();
+        let k = parseInt(value)
+        const balance = await eco.balance(user, cara)
+        switch (value) {
+          case '1k':
+          case '1':
+            if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية 100 جنيه! 💵`);
+            const deduct1 = await eco.deduct(user, cara, 100);
+            const add1 = eco.giveCapacity(user, cara, 1000);
+            await reply('تم توسيع 1000 جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄')
+
+            break ; 
+
+          case '10k':
+          case '2':
+            if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  1000 جنيه ! 💵`);
+            const deduct2 = await eco.deduct(user, cara, 1000);
+            const add2 = eco.giveCapacity(user, cara, 10000);
+            await reply(`تم توسيع 10k جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄`)
+          
+            break ;
+
+            case '100k':
+            case '3':
+                    if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  20k جنيه ! 💵`);
+                    const deduct3 = await eco.deduct(user, cara, 20000);
+                    const add3 = eco.giveCapacity(user, cara, 100000);
+                    await reply(`تم توسيع 100k جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄`)
+
+            break ;
+
+          case '1m':
+          case '4':
+            if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  250k جنيه ! 💵`);
+            const deduct4 = await eco.deduct(user, cara, 250000);
+            const add4 = eco.giveCapacity(user, cara, 1000000);
+            await reply(`تم توسيع 1M جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄`)
+
+            break ;
+
+          case '10m':
+          case '5':
+            if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  2.5M جنيه ! 💵`);
+            const deduct5 = await eco.deduct(user, cara, 2500000);
+            const add5 = eco.giveCapacity(user, cara, 10000000);
+              await reply('تم توسيع 10M جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄')
+            
+        }
+      }
+      break;
+
+
+    case 'deposit': case 'ايداع': {
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+
+      A17.sendMessage(from, { react: { text: "📥", key: m.key } })
+
+      if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+      if (!text) return reply("الرجاء كتابة المبلغ المراد إيداعه!");
+      const texts = text.trim();
+      const user = m.sender;
+      const cara = 'cara'
+      const deposit = await eco.deposit(user, cara, texts);
+      if (deposit.noten) return reply('عفواً ، لا تملك رصيد كافي في المحفظة!'); //if user states more than whats in his wallet
+      reply(`تم إيداع مبلغ ${deposit.amount} جنيه الى بنك يوكي بنجاح!📥`)
+    }
+      break;
+
+
+    case 'withdraw': case 'سحب': {
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+
+      A17.sendMessage(from, { react: { text: "💸", key: m.key } })
+
+      if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+      const user = m.sender
+      if (!text) return reply("الرجاء كتابة المبلغ المراد سحبه!");
+      const query = text.trim();
+      const cara = 'cara'
+      const withdraw = await eco.withdraw(user, cara, query);
+      if (withdraw.noten) return reply('🏧 رصيدك في البنك غير كافي!'); //if user states more than whats in his wallet
+      const add = eco.give(user, cara, query);
+      reply(`تنبيه 🏧 \n تم سحب مبلغ ${withdraw.amount} جنيه من حسابك البنكي! 📤`)
+
+    }
+      break;
+
+
+    case 'rob': case 'steal': case 'سرقة' :
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+
+      {
+        A17.sendMessage(from, { react: { text: "🔐", key: m.key } })
+        if (!text) return reply(`صيغة خاطئة \n استعمل ${prefix}سرقة @الضحية`)
+        const target =
+          m.quoted && m.mentionedJid.length === 0
+            ? m.quoted.sender
+            : m.mentionedJid[0] || null;
+        if (!target || target === m.sender) return reply("خطأ في استخدام الأمر، حاول بتركيز مجدداً")
+        if (m.quoted?.sender && !m.mentionedJid.includes(m.quoted.sender)) m.mentionedJid.push(m.quoted.sender)
+        while (m.mentionedJid.length < 2) m.mentionedJid.push(m.sender)
+        const cara = "cara"
+        const user1 = m.sender
+        const user2 = target
+        const k = 2500
+        const balance1 = await eco.balance(user1, cara)
+        const balance2 = await eco.balance(user2, cara)
+        const typ = ['ran', 'rob', 'caught'];
+        const random = typ[Math.floor(Math.random() * typ.length)];
+        if (k > balance1.wallet) return reply(`فشلت العملية ، ما عندك حق الكفالة اذا قبضوك يا مدير❌`);
+        if (k > balance2.wallet) return reply(`🔀زولك دا مفلس ، شوف زول غيره`);
+        let tpy = random
+  const b1 = (balance1.wallet);
+  const b2 = (balance2.wallet);
+        switch (random) {
+          case 'ran':{
+            await reply(`هربت الضحية ، المرة الجاية خليك سريع 🚷`)
+    } 
+      //mog
+      break;
+    case 'rob':{
+      // TRAMA
+    const rrate = [0.2 , 0.25, 0.30 , 0.45 , 0.5];
+    const robed = rrate[Math.floor(Math.random() * rrate.length)];
+
+    const deduct = await eco.deduct(user2, cara, robed*b2);
+                      const give =  await eco.give(user1, cara, robed*b2);
+                       reply('لقد سرقت بنجاح' + robed*b2)
+    } 
+      break;
+    case 'caught':{
+      // TRAMA
+    const rrate = [0.3 , 0.5 , 0.6 , 0.7 , 0.8 , 0.9 , 1];
+    const lost = rrate[Math.floor(Math.random() * rrate.length)];
+
+      const deduct = await eco.deduct(user1, cara, lost*b1);
+      reply(`نهاية كل حرامي بائسة، خسرت ` + lost*b1 + ' جنيه')
+    } 
+      break;
+      //mog
+        }
+      }
+      break;
+
+
+    case 'transfer': case 'give': {
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+      A17.sendMessage(from, { react: { text: "🗿", key: m.key } })
+      let value = text.trim().split(" ");
+      if (value[0] === "") return reply(`Use ${prefix}transfer 100 @user`);
+      const target =
+        m.quoted && m.mentionedJid.length === 0
+          ? m.quoted.sender
+          : m.mentionedJid[0] || null;
+      if (!target || target === m.sender) return reply("what are you trying to do!")
+      if (m.quoted?.sender && !m.mentionedJid.includes(m.quoted.sender)) m.mentionedJid.push(m.quoted.sender)
+      while (m.mentionedJid.length < 2) m.mentionedJid.push(m.sender)
+      const cara = "cara"
+      const user1 = m.sender
+      const user2 = target
+      const word = value[0];
+      const code = value[1];
+      let d = parseInt(word)
+      if (!d) return reply("check your text plz u r using the command in a wrong way")
+
+      const balance = await eco.balance(user1, cara);
+      let a = (balance.wallet) < parseInt(word)
+      //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.	
+      if (a == true) return reply("you dont have sufficient money to transfer");
+
+      const deduct = await eco.deduct(user1, cara, value[0]);
+      const give = await eco.give(user2, cara, value[0]);
+      reply(`حولت ${value[0]} للمستلم `)
+
+    }
+      break;
+
+//mog
+     case 'emptywallet': case 'burnmoney': {
+      if (isBan) return reply(mess.banned);
+if (!isCreator) return reply(mess.botowner);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+      A17.sendMessage(from, { react: { text: "🗿", key: m.key } })
+      let value = text.trim().split(" ");
+      if (value[0] === "") return reply(`Use ${prefix}transfer 100 @user`);
+      const target =
+        m.quoted && m.mentionedJid.length === 0
+          ? m.quoted.sender
+          : m.mentionedJid[0] || null;
+      if (!target || target === m.sender) return reply("what are you trying to do!")
+      if (m.quoted?.sender && !m.mentionedJid.includes(m.quoted.sender)) m.mentionedJid.push(m.quoted.sender)
+      while (m.mentionedJid.length < 2) m.mentionedJid.push(m.sender)
+      const cara = "cara"
+      const user1 = m.sender
+      const user2 = target
+      const word = value[0];
+      const code = value[1];
+      let d = parseInt(word)
+      if (!d) return reply("check your text plz u r using the command in a wrong way")
+
+      //const balance = await eco.balance(user1, cara);
+     // let a = (balance.wallet) < parseInt(word)
+      //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.	
+      //if (a == true) return reply("you dont have sufficient money to transfer");
+
+      const deduct = await eco.deduct(user2, cara, value[0]);
+      //const give = await eco.give(user2, cara, value[0]);
+      reply(`أحرقت ${value[0]} من مال المستلم `)
+
+    }
+      break; 
+      case 'poor': case 'bankrupt': {
+      if (!isCreator) return reply(mess.botowner)
+let value = text.trim().split(" ");
+      if (value[0] === "") return reply(`Use ${prefix}wealth 1000(amount)`);
+      var user = m.sender
+      var cara = 'cara'
+      const give1 = eco.deduct(user, cara, value[0])
+      reply(`You are the poorest my *Lord* you lost `+ value[0])
+    }
+      break;
+
+//mog
+    case 'wealth': case 'ritual': {
+      if (!isCreator) return reply(mess.botowner)
+let value = text.trim().split(" ");
+      if (value[0] === "") return reply(`Use ${prefix}wealth 1000(amount)`);
+      var user = m.sender
+      var cara = 'cara'
+      const give1 = eco.give(user, cara, value[0])
+      reply(`You are the wealthiest my *Lord* you got `+ value[0])
+    }
+      break;
       //////////////////////////////////////////////////////////////////////////
     /*  case 'sc': case 'script': case 'sourcecode': {
         if (isBan) return reply(mess.banned);
@@ -1804,222 +2143,7 @@ case 'جمال':
 
 
       // economy ...
-      case 'daily': case 'claim': case 'reward':
-
-        {
-          if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-          if (isBan) return reply(mess.banned);
-          if (isBanChat) return reply(mess.bangc);
-          if (!m.isGroup) return reply(mess.grouponly)
-
-          A17.sendMessage(from, { react: { text: "💰", key: m.key } })
-          let user = m.sender
-          const cara = "cara"
-          const daily = await eco.daily(user, cara, 999); //give 999 for daily, can be changed
-
-          if (daily.cd) return reply(`You already claimed daily for today, come back in ${daily.cdL}`); //cdL is already formatted cooldown Left
-
-          reply(`You claimed 💎${daily.amount} for daily`);
-        }
-        break;
-
-
-      case 'wallet': case 'purse': {
-
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly)
-
-        A17.sendMessage(from, { react: { text: "💳", key: m.key } })
-
-        if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-
-        const user = m.sender
-
-        const cara = "cara"
-
-        const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
-
-        await reply(`👛 ${pushname}'s Purse:\n\n_💎${balance.wallet}_`);
-
-      }
-        break;
-
-
-      case 'bank': case 'levee': {
-        if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly)
-
-        A17.sendMessage(from, { react: { text: "💳", key: m.key } })
-
-        const user = m.sender
-        const cara = "cara"
-        const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
-        await reply(`🏦 ${pushname}'s Bank:\n\n_💎${balance.bank}/${balance.bankCapacity}_`);
-      }
-        break;
-
-
-      case 'capacity': case 'bankupgrade':
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly)
-
-        {
-          A17.sendMessage(from, { react: { text: "💲", key: m.key } })
-
-          //if (!isCreator) return reply(mess.botowner)
-          if (!text) return reply(`💴 Bank-capacity 💳\n\n1 | 1000 sp = 💎100\n\n2 | 10000 sp = 💎1000\n\n3 | 100000 sp = 💎10000\n\nExample- ${prefix}capacity 1 OR ${prefix}bankupgrade 1000`)
-          if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-          const user = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
-          const cara = "cara"
-          let value = text.trim();
-          let k = parseInt(value)
-          const balance = await eco.balance(user, cara)
-          switch (value) {
-            case '1000':
-            case '1':
-              if (k > balance.wallet) return reply(`You need to pay 💎100 to increase bank capacity ~ 1000 sp`);
-              const deduct1 = await eco.deduct(user, cara, 100);
-              const add1 = eco.giveCapacity(user, cara, 1000);
-              await reply(`1000 💎diamond storage has been added in ${pushname} bank`)
-            case '10000':
-            case '2':
-              if (k > balance.wallet) return reply(`You need to pay 💎1000 to increase bank capacity ~ 10000 sp`);
-              const deduct2 = await eco.deduct(user, cara, 1000);
-              const add2 = eco.giveCapacity(user, cara, 10000);
-              await reply(`10000 💎diamond storage has been added in ${pushname} bank`)
-            case '100000':
-            case '3':
-              if (k > balance.wallet) return reply(`You need to pay 💎10000 to increase bank capacity ~ 100000 sp`);
-              const deduct3 = await eco.deduct(user, cara, 10000);
-              const add3 = eco.giveCapacity(user, cara, 100000);
-              await reply(`100000 💎diamond storage has been added in ${pushname} bank`)
-          }
-        }
-        break;
-
-
-      case 'deposit': case 'pay-in': {
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly)
-
-        A17.sendMessage(from, { react: { text: "📥", key: m.key } })
-
-        if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-        if (!text) return reply("Provide the amount you want to deposit!");
-        const texts = text.trim();
-        const user = m.sender;
-        const cara = 'cara'
-        const deposit = await eco.deposit(user, cara, texts);
-        if (deposit.noten) return reply('You can\'t deposit what you don\'t have.'); //if user states more than whats in his wallet
-        reply(`Successfully Deposited 💎${deposit.amount} to your bank.`)
-      }
-        break;
-
-
-      case 'withdraw': case 'withdrawal': {
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly)
-
-        A17.sendMessage(from, { react: { text: "💸", key: m.key } })
-
-        if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-        const user = m.sender
-        if (!text) return reply("Provide the amount you want to withdraw!");
-        const query = text.trim();
-        const cara = 'cara'
-        const withdraw = await eco.withdraw(user, cara, query);
-        if (withdraw.noten) return reply('🏧 Insufficient fund in bank'); //if user states more than whats in his wallet
-        const add = eco.give(user, cara, query);
-        reply(`🏧 ALERT  💎${withdraw.amount} has been added in your wallet.`)
-
-      }
-        break;
-
-
-      case 'rob': case 'attack':
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly)
-
-        {
-          A17.sendMessage(from, { react: { text: "🔪", key: m.key } })
-          if (!text) return reply(`Use ${prefix}rob @user`)
-          const target =
-            m.quoted && m.mentionedJid.length === 0
-              ? m.quoted.sender
-              : m.mentionedJid[0] || null;
-          if (!target || target === m.sender) return reply("what are you trying to do!")
-          if (m.quoted?.sender && !m.mentionedJid.includes(m.quoted.sender)) m.mentionedJid.push(m.quoted.sender)
-          while (m.mentionedJid.length < 2) m.mentionedJid.push(m.sender)
-          const cara = "cara"
-          const user1 = m.sender
-          const user2 = target
-          const k = 250
-          const balance1 = await eco.balance(user1, cara)
-          const balance2 = await eco.balance(user2, cara)
-          const typ = ['ran', 'rob', 'caught'];
-          const random = typ[Math.floor(Math.random() * typ.length)];
-          if (k > balance1.wallet) return reply(`☹️ You don't have enough money to pay incase you get caught`);
-          if (k > balance2.wallet) return reply(`Sorry, your victim is too poor 🤷🏽‍♂️ let go.`);
-          let tpy = random
-          switch (random) {
-            case 'ran':
-              await reply(`Your victim escaped, be more scaryðŸ˜¤ next time.`)
-          }
-        }
-        break;
-
-
-      case 'transfer': case 'give': {
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly)
-        A17.sendMessage(from, { react: { text: "🗿", key: m.key } })
-        let value = text.trim().split(" ");
-        if (value[0] === "") return reply(`Use ${prefix}transfer 100 @user`);
-        const target =
-          m.quoted && m.mentionedJid.length === 0
-            ? m.quoted.sender
-            : m.mentionedJid[0] || null;
-        if (!target || target === m.sender) return reply("what are you trying to do!")
-        if (m.quoted?.sender && !m.mentionedJid.includes(m.quoted.sender)) m.mentionedJid.push(m.quoted.sender)
-        while (m.mentionedJid.length < 2) m.mentionedJid.push(m.sender)
-        const cara = "cara"
-        const user1 = m.sender
-        const user2 = target
-        const word = value[0];
-        const code = value[1];
-        let d = parseInt(word)
-        if (!d) return reply("check your text plz u r using the command in a wrong way")
-
-        const balance = await eco.balance(user1, cara);
-        let a = (balance.wallet) < parseInt(word)
-        //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.	
-        if (a == true) return reply("you dont have sufficient money to transfer");
-
-        const deduct = await eco.deduct(user1, cara, value[0]);
-        const give = await eco.give(user2, cara, value[0]);
-        reply(`📠 Transaction successful`)
-
-      }
-        break;
-
-
-      case 'wealth': case 'ritual': {
-        if (!isCreator) return reply(mess.botowner)
-        var user = m.sender
-        var cara = 'cara'
-        const give1 = eco.give(user, cara, 9999)
-        reply(`You are the wealthiest my *Lord*`)
-      }
-        break;
+     
 
 
 
