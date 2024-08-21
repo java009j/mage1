@@ -653,56 +653,18 @@ Typed *surrender* to surrender and admited defeat`
       return arr[Math.floor(Math.random() * arr.length)]
     }
 
-    /*
-  let smallinput = budy.toLowerCase()
-  if (smallinput.includes('hello')) {
-    reply (`Hello ${pushname}, I am ${BotName}. How can i help you?`);
-  } 
+    
+ 
+ 
   
   //if (smallinput.includes('hi')) {
   
   //   reply (`Hello ${pushname}, I am ${BotName}. How can i help you?`);
   
   // } 
-  
-  if (smallinput=='kai') {
-      reply (`My Boss is lost in another Multiverse, and I lost the connection with him...`)
-  }
-  
-  
-  if (smallinput=='runtime') {
-    reply (`Hey ${pushname} my runtime is ${runtime(process.uptime())}\n\nCurrent Time: ${kaitime}\n\nCurrent Date: ${kaidate}`)
-  }
-  
-  
-  
-  if( smallinput.includes('konichiwa') || smallinput.includes('konochiwa') || smallinput.includes('konichiba') || smallinput.includes('salute')){
-    reply (`Konichiwa ${pushname}, I am ${BotName}. How can i help you?`);
-  }
-  
-  
-  if (smallinput=='a17') {
-      reply ('Yes I am Alive 🫂')
-  }
-  
-  if (smallinput=='sasha') {
-    reply ('Only you...🫶🏻')
-  }
-  
-  if (smallinput=='ping') {
-      reply (`Hey ${pushname} Pong ${latensie.toFixed(4)} ms`)
-  }
-  
-  
-  if (smallinput.includes('good morning') || smallinput.includes('ohayo')) {
-    reply (`Good morning to you too ${pushname} ☺️. Have a great day 😇.`);
-  }
-  
-  if (smallinput.includes('good afternoon') || smallinput.includes('konnichiwa')) {
-  
-    reply (`Good afthernoon to you too ${pushname} ✨. Wishing you an enjoyable afternoon too 😇🤞🏻.`);
-  
-  }
+ // if (smallinput.includes('good morning') || smallinput.includes('ohayo')) {
+ //   reply (`Good morning to you too ${pushname} ☺️. Have a great day 😇.`);
+//  }
   
   
   //if (smallinput.includes('good afthernoon')) {
@@ -710,16 +672,45 @@ Typed *surrender* to surrender and admited defeat`
   //   }
   
   
-  if (smallinput.includes('good night')) {
-    reply (`Good night to you too ${pushname} 😇. Sleep well and sweet dreams.`);
-  }
   
-  if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('thank')) {
-    reply (`Mention not ${pushname} 😇. I am a bot afterall.`);
-  }
-  */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+// DM {ONLY} Autoreply/Bot chat
+    if (!isCmd && !isyuki && !m.isGroup){
+       const botreply = await axios.get(`https://skizo.tech/api/cai/chat?apikey=Trama&characterId=knKgnFDJOVZ4McRPxM7ZoomKNDKsPcEmgOhJxBb9uCQ&sessionId=6A6EaWassppBUnKec0_f1hwRppbzHFruJTS7nmT2Zk0&token=c4192699ccbd83ce7c4177cabe5efd397c2ba4a9&text=${encodeURIComponent(budy)}`)
+        menggoda = `${botreply.data.result.text}`
+        m.reply(menggoda)
+     }
+
+
+    
+ let smallinput = budy.toLowerCase()
+    
     const responses = {
 
 
@@ -743,7 +734,292 @@ Typed *surrender* to surrender and admited defeat`
       reply(responses[smallinput]);
     }
 
+    if (smallinput==('يوكي')) {
+      if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+      if (isBanChat) return reply(mess.bangc);
+      if (!isyuki) {
+  const typ = ['عيون يوكي',
+   'احكي',
+    'عيوني' ,
+     'عايز حاجة؟' ,
+     'أهلييين' , 
+     'أوووو حبيبنا ياخ',
+    'وين يا ز9999لي',
+    'جمبك',
+    'اللمور و الصحة',
+    'اللخبار',
+    'رايك شنو في الاسم الجميل دا',
+     'الدنيا ضلام ما سامعاك'];
+  const random = typ[Math.floor(Math.random() * typ.length)];
+  reply(random)
+  }
+	}
 
+    
+if (smallinput.includes('البوت') || smallinput.includes('بوتة')){
+      if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+	if (isBanChat) return reply(mess.bangc);
+      if (!isyuki) {
+  const typ = ['عندي اسم يا شاب', 'ناديني ب اسمي لو سمحت',
+   'للمرة ال100 اسمي يوكييي ياخ' ,
+   'بوت مرتك , اه نسيت ما عندك مرا يا وحيد' , 
+  'ممكن عادي تسألني من اسمي ما باكل انا...' ,
+   'كلمة بوت بتجرح مشاعري ممكن تناديني ب اسمي؟' , 
+  'بمشيها ليك المرة دي بس ، اها مالك',
+'call me بوت one more time i dare u!',
+'اليوم كلو بوت بوت ، قديتنا قد',
+'يا زول ما تشوف شغلتك',
+'الواحد يبرمجوه و يضبحو بايثون في سمايته ، يجي زول يناديه بوت',
+'خلاص انا بوت عرفنا',
+'عيون البوت'];
+  const random = typ[Math.floor(Math.random() * typ.length)];
+  reply(random)
+      }
+	}
+
+
+   if (smallinput.includes('تست')) {
+    let media = await getBuffer("https://mallucampaign.in/images/img_1710704094.jpg");
+          const webpBuffer = await sharp(media)
+         .webp({ animated: true }) // Set animated to true for animated stickers
+         .toBuffer();
+       // Send sticker using A17 library (replace with your actual function)
+       A17.sendMessage(from, { sticker: webpBuffer }, { quoted: m });  
+   }
+
+
+	  if (smallinput.includes('سست')) {
+    let media = await getBuffer("https://gifdb.com/images/thumbnail/ghost-hug-virtual-kiss-anime-girl-menhera-chan-c3fvyxsyb034zqbt.gif");
+          const webpBuffer = await sharp(media)
+         .webp({ animated: true }) // Set animated to true for animated stickers
+         .toBuffer();
+       // Send sticker using A17 library (replace with your actual function)
+       A17.sendMessage(from, { sticker: webpBuffer }, { quoted: m });  
+   }
+    //-----------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+    if (smallinput.includes('يوكي') || smallinput.includes('yuki') || smallinput.includes('بوت')) {
+      if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+	 if (isBanChat) return reply(mess.bangc);
+      if (!isyuki) {
+            // قائمة بروابط الصور المختلفة
+           const imageUrls = [ '',
+			      'https://graph.org/file/387ad260dae3acff4d9e7.jpg', 
+			      'https://graph.org/file/e70439ce5430061550199.jpg', 
+			      'https://graph.org/file/6e17d93a31b8acc339225.jpg',
+			      'https://graph.org/file/4bb93bc8be60457fdbc0f.mp4',
+			      'https://graph.org/file/145ae084d7086d4b948af.jpg',
+			      'https://graph.org/file/56c034a9a48d28b455ea5.jpg',
+			      'https://graph.org/file/c9b4d6094610e99fc6996.jpg',
+			      'https://graph.org/file/be9038f127a50a1c7a2d3.png',
+			      'https://graph.org/file/a8b68ba8c977e4bc6bec8.jpg',
+			      'https://graph.org/file/4949c3250a554f2ff60f1.mp4', 
+           'https://graph.org/file/00359404498976bb12de0.png',
+           'https://graph.org/file/68b1fe1310122d9e101a2.png',
+           'https://graph.org/file/96b97f6a983e91405108b.png',
+           'https://graph.org/file/e6a9b9c34d8f8a9815ec0.png',
+           'https://graph.org/file/5aa9c778c5462118a2e5a.png',
+           'https://graph.org/file/31f355914a558a5cac385.png',
+           'https://graph.org/file/ebdd2092ac5eebdf6c241.png',
+           'https://graph.org/file/42f08ec5bffa52ddcd5a7.png',
+           'https://graph.org/file/9cf9514a107b7da263db1.png',
+           'https://graph.org/file/7f862d96e99fb24780e7f.png',
+           'https://graph.org/file/d169b9ae86bacaf6dc1a7.png',
+           'https://graph.org/file/cbf21d0319006bd8fcbaa.png',
+           'https://graph.org/file/322e856993e524d390f0f.png',
+           'https://graph.org/file/05ec47da60f9427de5e0e.png',
+           'https://graph.org/file/820ab928174bcb86c9c3f.png',
+           'https://graph.org/file/696c6e9280fa467335937.png',
+           'https://graph.org/file/78bde4815154d19b06d2d.png',
+           'https://graph.org/file/0b64c74ce6113baec3a33.png'
+        
+            ];
+        
+            // اختيار رابط عشوائي
+            const randomImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+                let media = await getBuffer(randomImageUrl);
+                const webpBuffer = await sharp(media)
+                 .webp() 
+                 .toBuffer();
+               // Send sticker usng A17 libray (replace with your actual function)
+               A17.sendMessage(from, { sticker: webpBuffer }, { quoted: m });   
+           }
+             }
+
+    //
+	  //  
+	  	
+	   //
+	  
+	  //
+     // 
+//
+/////////////////////////////////////////////////////////
+	  
+	  // C_Y_P_H_E_R 1.0
+
+if (smallinput==('اسمك منو')) {
+      if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+	if (isBanChat) return reply(mess.bangc);
+      if (!isyuki) {
+  const typ = ['اسمي يوكينا' , 'أبيت ما بوريك' , 'مالك و مالو' , 'اسمي يوكي'];
+  const random = typ[Math.floor(Math.random() * typ.length)];
+  reply(random)
+  }
+	}
+
+if (smallinput.includes('🤣🤣') || smallinput.includes('😂😂')){
+	if (isBanChat) return reply(mess.bangc);
+	if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+      if (!isyuki) {
+  const typ = ['ضحكة لكن' , 'تتفصل كدا تقول ترزي' , 'هيهيهي وزعنا بلح جاك عجوة؟' , 'الضحكة دي الياها الخلت حميدتي يقلب البلد' , 'ارجل شوية' , 'دي ضحكة ليك مع الرجال؟' , 'كتكت يا بطة' , 'ضحكتك دي جابتني من الكلاكلة'];
+  const random = typ[Math.floor(Math.random() * typ.length)];
+  reply(random)
+      }
+	}	  
+
+if (smallinput.includes('كيفك') || smallinput.includes('اخبارك') || smallinput.includes('امورك')) {
+      if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+	if (isBanChat) return reply(mess.bangc);
+      if (!isyuki) {
+  const typ = ['انا تمام الحمدلله ، انت كيف؟' , 'تمام زهجانة بس' , 'مالك و مالي' , 'انت كيفي و خبري و اموري يا عسل' , 'زهج بس يا زولي' , 'بخير دامك بخير'];
+  const random = typ[Math.floor(Math.random() * typ.length)];
+  reply(random)
+      }
+	}	 
+
+  // Jokes NOT aside :o 
+
+  if (smallinput.includes('نكتة') || smallinput.includes('نكته')) {
+    if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+	  if (isBanChat) return reply(mess.bangc);
+    if (!isyuki) {
+const typ = [
+'مرة واحد فات لي بتاع الدكان قال ليهو اديني طحنية قال ليهو ما عندي و هو عندو😆',
+'قال ليك عسكري مع ايام حظر التجوال ديك قالو ليهو اي زول تشوفو حايم بعد الساعة 7 اديهو طلقة...الساعة 6 شاف ليهو زول في شارع عبيد ختم طاخ ضربو  بي طلقة...الجماعة سألوهن قتلته ليي؟..قال ليك دا انا عارفو ساكن الكلاكلة م ح يحصل سريع 🤣🤣🤣🤣🤣', 
+'واحد حلب ليهو ليمونة رفستو🤣', 
+'واحد خيالو واسع اتملص منو😆' ,
+'واحد عمل ليه شاي  تقيل م قدر يشيلو😆' ,
+'واحد جاب شعرو بالجمبه عشان كان دايرو في موضوع😆',
+'واحد اسمو حسن نجيلة  نسى الباب فاتح الغنماية دخلت اكلت ابوه😆',
+'واحد كراعو خدرت وداها المشتل😆',
+'مره واحد اسمه احمد عماره داير ينتحر نط من فوق ابوه😆',
+'واحدة شعرها ناعم ختتو ف شياله😆',
+'واحد رجع في كلامه عفصو😆',
+'ضابط مرور عرس ضابطة جابو اولاد بتكلمو بالاشارات😆',
+'واحد اسمو سامح خت يدو في اضانو بقا م سامح😆',
+'استاذ عربي وقع رفعوه بالضمه😆',
+'واحده اسمها اسرار ضربتها عربيه الشارع اتملا فضايح😆',
+'مسطول داير يقطع الزلط لقى السكينه ميته😆',
+'واحده اسمها بسمه كبرت بقت توقيع😆',
+'مره مدير عام ومدير غرق😆',
+'واحد عرس صينيه شال فيها الاكل😆',
+'استاذ رياضيات طقتو ركشه فات المستشفى قالو ليهو عندك كسور قاليهم وحدو المقامات😆',
+'مسطول عرف انو الشيطان شاطر فات يراجع معاه حسبان',
+'واحد رجلينو رقاق اتسحر بيهم😆',
+'واحدة اسمها رنين غابت عن الدوام سجلوها مكالمه فائته😆',
+'واحد عيونو صغار دخلهم الروضه😆',
+'واحد أضانو تقيلة جاب لي درداقة😆',
+'واحد حلق لبستو أختو😆',
+'واحد اسمو حسنين طق العمود أي حسن مشى في اتجاه😆',
+    ];
+const random = typ[Math.floor(Math.random() * typ.length)];
+reply(random)
+    }
+}
+
+//advises
+if (smallinput.includes('نصيحة') || smallinput.includes('انصحني')) {
+    if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+	if (isBanChat) return reply(mess.bangc);
+    if (!isyuki) {
+const typ = [
+'الخصوصية قوة، فالناس لا يستطيعون تدمير ما لا يعرفونه، أنت سيد ما تخفيه ... وأسير ما تفشيه', 
+'إن لم يجد الانسان شيئا يموت في سبيله؛ فإنه لا يستحق أن يعيش', 
+'ليس كل شيء يحل بالعنف، فعندما تحط بعوضة على احدى قلقتيك ستتذكر كلامي هذا جيدا',
+'اسي انت في ال"بعدين"الاجلت ليها أعمالك...',
+'العقل الواعي هو القادر على احترام الفكرة، حتى ولو لم يؤمن بها' ,
+'عش كل لحظة كأنها آخر لحظة في حياتك، عش بالإيمان، عش بالأمل، عش بالحب، عش بالكفاح، وقدر قيمة الحياة.' ,
+' لا تدفع لأحد أجره قبل أن يتم عمله.',
+'لا تتأخر فى نومك إن كنت تحرص على يومك.',
+'من كان يعبد محمد فإن محمد قد مات، و من كان يعبد الله فإن الله حي لا يموت. ',
+'لا تترك عملك قبل أن تؤمن غيره',
+'إعمل فليس أسوأ على الرجل من أن يعتاد العطال. ',
+'لا تتخذ قرارا و أنت غاضب',
+'تذكر.. نجاحك غدا يعتمد على عملك اليوم',
+'ابتعد عن التدخين و التمباك',
+'أفضل وقت لزراعة شجرة كان قبل 20 عاما،ثاني أفضل وقت هو الآن. قف على قدميك! ',
+'ألم يأن للذين آمنوا أن تخشع قلوبهم لذكر الله؟ ',
+'لا يصيبنك الهوس باختيار الخيار الصحيح، حدد المشكلة و الحلول المحتملة و انطلق، بعض القرارات غير قابلة للعكس لكن معظمها ليس كذلك',
+'الأفعال تفضح معتقداتك، الكلمات الرنانة لا تشفع للأفعال الفاسدة',
+'لا تنتظر أن تحين الفرصة المناسبة بل اصنعها',
+'لا تقدم التنازلات، يبدأ الأمر بتنازل بسيط ثم تتحول حياتك كلها الى استسلام',
+'لا تضيع وقتك في التفكير في الذي لا تملك القدرة على تغيره',
+'ركز في حاضرك',
+'الهرب من مشاكلك لن يحلها',
+'تذكر ان هنالك أكثر من طريقة لفعل شيء معين',
+'لا تندم على الاحسان للآخرين',
+'لا ضير من قول لا أعلم، لا يجب أن تعلم اجابة كل شيء',
+'تعلم التسويق لنفسك، اذا سئلت عن قدراتك في مقابلة عمل فدع التواضع جانبا',
+'اذا وضحت  نقطتك فتوقف عن الكلام',
+'اذا خضت عراكا فاضرب أولا و اضرب بقوة!. ',
+    ];
+const random = typ[Math.floor(Math.random() * typ.length)];
+reply(random)
+    }
+}	  
+
+    if (smallinput.includes('كلام شنو')) {
+    reply (`كلام بلانا`);
+  }
+
+  if (smallinput.includes('هجهج')) {
+      if (isBan) return reply(`آسفة بس انت محظور من البوت`);
+      if (!isyuki) {
+  const typ = [
+	      '#هجهج_لازم_زوجة😞', 
+	      '✨🌀هجهجوكس 🦊 ي ود ي فوكس🌀✨', 
+	      '✨🌀هجهج ستار ☆ ملك الافكار 🌀✨',
+	      '✨🌀هجهج الخطير 📸 ملك التصوير🌀✨',
+	      '✨🌀هجهج ستار ☆ نجم الليل و النهار 🌀✨',
+	      'خلاص عرفنا هجهج ستار ما تقدنا'];
+  const random = typ[Math.floor(Math.random() * typ.length)];
+  reply(random)
+  }
+	}
+
+
+
+  //
+	  //
+	   // 
+
+    //
+	  // CYPHER ENDS HERE
+
+ ////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     //============= [LIST RESPONCE CHECKING START ]================
 
     //-----------------------------------------------------------------------------------------------------------------------------------//
@@ -772,10 +1048,317 @@ Typed *surrender* to surrender and admited defeat`
 
 
     switch (command) {
+////////////////////////////////////////////////////////////////////////
 
 
-      //
-      case 'sc': case 'script': case 'sourcecode': {
+
+
+// GROUPS CHAT BOT
+		    
+ case 'yuki':
+ case 'cai':
+ case 'يوكي':
+ case 'y' :{
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+
+        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
+
+        try {
+          const hoshino = await axios.get(`https://skizo.tech/api/cai/chat?apikey=Trama&characterId=knKgnFDJOVZ4McRPxM7ZoomKNDKsPcEmgOhJxBb9uCQ&sessionId=6A6EaWassppBUnKec0_f1hwRppbzHFruJTS7nmT2Zk0&token=c4192699ccbd83ce7c4177cabe5efd397c2ba4a9&text=${encodeURIComponent(budy)}`);
+          const yume = hoshino.data;
+          let message = "";
+
+          if (yume.success === true) {
+            message = yume.result.text;
+          } else {
+            return reply("Sorry, my circuits has been fried..wait a bit till i get hold of myself.");
+          }
+
+          const me = m.sender;
+          await A17.sendMessage(m.chat, { text: message, mentions: [me] }, { quoted: m });
+
+        } catch (error) {
+          console.error(error);
+          reply("An error occurred while fetching the response from the API.");
+        }
+      }
+        break; 
+
+ case 'sd' :{
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+
+        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
+
+        try {
+          const hoshino = await axios.get(`https://skizo.tech/api/simi?apikey=arona&level=8&text=${encodeURIComponent(budy)}`);
+          const yume = hoshino.data;
+          let message = "";
+
+          if (yume.success === true) {
+            message = yume.result.text;
+          } else {
+            return reply("Sorry, my circuits has been fried..wait a bit till i get hold of myself.");
+          }
+
+          const me = m.sender;
+          await A17.sendMessage(m.chat, { text: message, mentions: [me] }, { quoted: m });
+
+        } catch (error) {
+          console.error(error);
+          reply("An error occurred while fetching the response from the API.");
+        }
+      }
+        break; 
+		    
+	  
+case 'chatgpt':
+      case 'ai':
+      case 'gpt': {
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+
+        const randomEmoji = manyemojis[Math.floor(Math.random() * manyemojis.length)];    
+	      A17.sendMessage(from, { react: { text: randomEmoji, key: m.key } });
+
+        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, ChatGPT!`);
+
+        try {
+          const apiUrl1 = `https://skizo.tech/api/openai?apikey=Trama&messages=&system=&text=${encodeURIComponent(q)}`;
+
+          const response1 = await fetch(apiUrl1);
+          const responseData1 = await response1.json();
+
+          let message = "";
+
+          if (response1.status === 200 && responseData1 && responseData1.status === true && responseData1.data) {
+            message = responseData1.data;
+          } else {
+            return reply("Sorry, I couldn't fetch a response from the API at the moment.");
+          }
+
+          const me = m.sender;
+          await A17.sendMessage(m.chat, { text: message, mentions: [me] }, { quoted: m });
+
+        } catch (error) {
+          console.error(error);
+          reply("An error occurred while fetching the response from the API.");
+        }
+      }
+        break;
+        
+
+
+		    
+      case 'yuki':
+      case 'cai':
+       {
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+
+        const randomEmoji = manyemojis[Math.floor(Math.random() * manyemojis.length)];
+        A17.sendMessage(from, { react: { text: randomEmoji, key: m.key } });
+
+        if (!q) return reply(`تكلم مع بنات حقيقيات المرة القادمة`);
+
+        try {
+          const apiUrl1 = `https://skizo.tech/api/cai/chat?apikey=Trama&characterId=knKgnFDJOVZ4McRPxM7ZoomKNDKsPcEmgOhJxBb9uCQ&sessionId=40B-KXcNf-26ThJeFqxz6oQqV4CSl3f8EZxqhis7OR4&token=c4192699ccbd83ce7c4177cabe5efd397c2ba4a9&text=$%7BencodeURIComponent(budy)%7D`;
+
+          const response1 = await fetch(apiUrl1);
+          const responseData1 = await response1.json();
+
+          let message = "";
+
+          if (response1.status === 200 && responseData1 && responseData1.status === true && responseData1.data) {
+            message = responseData1.data;
+          } else {
+            return reply("يمكنني التحدث بالإنجليزية فقط أعتذر🙁");
+          }
+
+          const me = m.sender;
+          await A17.sendMessage(m.chat, { text: message, mentions: [me] }, { quoted: m });
+
+        } catch (error) {
+          console.error(error);
+          reply("An error occurred while fetching the response from the API.");
+        }
+      }
+        break;
+
+ 
+      case 'dalle': case 'imgai': {
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+
+        const randomEmoji = manyemojis[Math.floor(Math.random() * manyemojis.length)];
+        A17.sendMessage(from, { react: { text: randomEmoji, key: m.key } });
+
+        if (!q) return reply(`Please provide a query to generate an image. Example: ${prefix + command} Beautiful landscape`);
+
+        const apiUrl = `https://skizo.tech/api/midjourney?apikey=Sora&base64=1&prompt=${encodeURIComponent(q)}`;
+
+        try {
+          await A17.sendMessage(m.chat, { image: { url: apiUrl } }, { quoted: m });
+        } catch (error) {
+          console.error(error);
+          reply("An error occurred while generating the image.");
+        }
+      }
+        break;
+
+
+	  case 'upscale': case 'رفع' : {
+
+        if (isBanChat) return reply(mess.bangc);
+         A17.sendMessage(from, { react: { text: "🫡", key: m.key } })
+          let { GraphOrg } = require("./lib/uploader");
+
+        if (!quoted) return `*Send/reply Image With Caption* ${prefix + command}`
+        if (!/image/.test(mime)) return `*Send/reply Image With Caption* ${prefix + command}`
+        let media = await A17.downloadAndSaveMediaMessage(quoted)
+        let anu = await GraphOrg(media);
+	const typ = ['Trama', 'arona', 'adamxion'];
+        const api = typ[Math.floor(Math.random() * typ.length)];
+        let serika = await getBuffer(`https://skizo.tech/api/remini?apikey=${api}&url=${util.format(anu)}`) 
+        await A17.sendMessage(m.chat, { image: serika }, { quoted: m })
+      }
+        break;
+
+	  //////////////////////////////////////////////
+	  
+
+	  case 'toanime':{
+
+        if (isBanChat) return reply(mess.bangc);
+         A17.sendMessage(from, { react: { text: "🫡", key: m.key } })
+          let { GraphOrg } = require("./lib/uploader");
+
+        if (!quoted) return `*Send/reply Image With Caption* ${prefix + command}`
+        if (!/image/.test(mime)) return `*Send/reply Image With Caption* ${prefix + command}`
+        let media = await A17.downloadAndSaveMediaMessage(quoted)
+        let anu = await GraphOrg(media);
+          const typ = ['Trama', 'arona', 'adamxion'];
+        const api = typ[Math.floor(Math.random() * typ.length)];
+        let serika = await getBuffer(`https://skizo.tech/api/toanime?apikey=${api}&url=${util.format(anu)}`) 
+        let shiroko = await axios.get(`https://skizo.tech/api/toanime?apikey=${api}&url=${util.format(anu)} `)
+        const sensei = shiroko.data.status;
+        if (sensei === 400) {
+            return reply("تم الوصول لسقف التحويل اليومي ، الرجاء الانتظار لليوم التالي");
+          } else {      
+        await A17.sendMessage(m.chat, { image: serika }, { quoted: m })
+      }
+         }
+        break; 
+
+case 'toimage': case 'ص': case 'toimg': case 'صورة' : {
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        A17.sendMessage(from, { react: { text: "🪄", key: m.key } })
+        if (!m.quoted) return reply('reply Image')
+        if (!/webp/.test(mime)) return reply(`reply sticker with caption *${prefix + command}*`)
+        reply(mess.waiting)
+        let media = await A17.downloadAndSaveMediaMessage(quoted)
+        let ran = await getRandom('.png')
+        exec(`ffmpeg -i ${media} ${ran}`, (err) => {
+          fs.unlinkSync(media)
+          if (err) throw err
+          let buffer = fs.readFileSync(ran)
+          A17.sendMessage(m.chat, { image: buffer }, { quoted: m })
+          fs.unlinkSync(ran)
+        })
+      }
+        break;
+
+case "tourl": case 'tolink': case 'ر' : case 'رابط' :
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+
+        let { GraphOrg } = require("./lib/uploader");
+        if (!m.quoted) {
+          //
+          A17.sendMessage(from, { react: { text: "❔", key: m.key } })
+          return m.reply(
+            `With caption not working, first send an *Image* / *Video* to generate a link! then tag with *${prefix}tourl*`
+          );
+        }
+        let media5 = await A17.downloadAndSaveMediaMessage(quoted);
+        if (/image/.test(mime)) {
+          //
+          let anu = await GraphOrg(media5);
+          m.reply(`*Generated Image URL:* \n\n${util.format(anu)}\n`);
+        } else if (/video/.test(mime)) {
+          //
+          try {
+            let anu = await GraphOrg(media5);
+            m.reply(`*Generated Video URL:* \n\n${util.format(anu)}\n`);
+          } catch (e) {
+            //
+            await fs.unlinkSync(media5);
+            return A17.sendMessage(
+              m.from,
+              {
+                text: `*Your video size is too big!*\n\n*Max video size:* 5MB`,
+              },
+              { quoted: m }
+            );
+          }
+        } else {
+          //
+          return m.reply(
+            `Plese provide an *Image* / *Video* to generate a link!`
+          );
+        }
+        await fs.unlinkSync(media5);
+        break;
+
+case 'جمال':
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        A17.sendMessage(from, { react: { text: "😺", key: m.key } })
+
+        if (!text) return reply(`Tag Someone, Example : ${prefix + command} @Kai`)
+        const sangeh = ['100/100 \n جميل جداً',
+		       '110/100 \n عسل بس',
+		       '0/100 \n وشه = ركبته',
+		       '90/100 أجمل شخص في العالم',
+		       'الأرقام لا تستطيع تقييمه',
+		       '2/100 \n ال2 دي زاتا جات بالغلط',
+		       'الكلمات لا تستطيع وصف جماله \n لكن الأرقام تستطيع -2/100',
+		       '-100/100',
+		       '77/100 \n جميييل']
+        const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
+        A17.sendMessage(from, { text: `*مقياس الجمال*\n\nName : ${q}\nAnswer : ${sange}` }, { quoted: m })
+        break;	    
+      
+      case 'قباحة':
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        A17.sendMessage(from, { react: { text: "😺", key: m.key } })
+
+        if (!text) return reply(`Tag Someone, Example : ${prefix + command} @Kai`)
+        const sangeh1 = ['100/100 \n قبيح جداً',
+		       '10/100 \n عسل بس',
+		       '110/100 \n كسر مقياس القباحة']
+        const sange1 = sangeh1[Math.floor(Math.random() * sangeh1.length)]
+        A17.sendMessage(from, { text: `*مقياس القبح*\n\nName : ${q}\nAnswer : ${sange}` }, { quoted: m })
+        break;
+
+
+      case 'شخصية':
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        A17.sendMessage(from, { react: { text: "🤧", key: m.key } })
+
+        if (!text) return reply(`اعمل تاق لي زول مثلاً : ${prefix + command} @Trama`)
+        const A17tttt = ['مكنة', 'طايرة ليه في راسه', 'مسكين ساي', 'أمكن زول فيك يا بلد', 'شفت ممسح بالزفت', 'راسطة ممسح بالباسطة', 'عايزة اقول بليد لكن خايفة يزعل', 'حساس بحبو الناس', 'ما عندو كلمة', 'لو البطالة عندها أبو ، هو ح يكون أبوها', 'مكن و اتركن', 'تعبن', 'همباتي ساي' , 'الكلمات لا تكفي لوصف شخصيته،  لكن الأرقام تستطيع 0/10' , 'وحيد' , 'بائس']
+        const taky = A17tttt[Math.floor(Math.random() * A17tttt.length)]
+        A17.sendMessage(from, { text: `مقياس الشخصية \n : ${q}\nAnswer : *${taky}*` }, { quoted: m })
+        break;
+        
+
+      //////////////////////////////////////////////////////////////////////////
+    /*  case 'sc': case 'script': case 'sourcecode': {
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         A17.sendMessage(from, { react: { text: "❤", key: m.key } })
@@ -784,14 +1367,14 @@ Typed *surrender* to surrender and admited defeat`
         teks = `*A17 Script*\n\n*Total Stars*: ${data.stargazers_count}⭐\n*Total Forks*: ${data.forks_count} forks\n*GitHub*: https://github.com/Kai0071/A17\n\nDont forget to follow me on *GitHub* and give a ⭐️ to my projects. `
         /*  let buttons = [
           {buttonId: `${prefix}owner`, buttonText: {displayText: '🍁 DEVELOPER 🍁'}, type: 1}
-          ] */
+          ] 
         let buttonMessage = {
           image: Thumb,
           jpegThumbnail: BotLogo,
           caption: teks,
           /* footer: `${BotName}`,
            buttons: buttons,
-           headerType: 4, */
+           headerType: 4, 
           contextInfo: {
             externalAdreply: {
               title: "Powered by Kai",
@@ -806,9 +1389,9 @@ Typed *surrender* to surrender and admited defeat`
           }
 
         }
-        A17.sendMessage(m.chat, buttonMessage, { quoted: m })
+        A17.sendMessage(m.chat, buttonMessage, { quoted: m }) 
       }
-        break;
+        break; */
 
       case 'owner': case 'creator': case 'mod': case 'mods': {
         if (isBan) return reply(mess.banned);
@@ -820,7 +1403,7 @@ Typed *surrender* to surrender and admited defeat`
         break;
 
 
-      case "link": {
+     case "link": {
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
 
@@ -828,8 +1411,8 @@ Typed *surrender* to surrender and admited defeat`
 
           await A17.sendMessage(from, { react: { text: "❤", key: m.key } });
 
-          let { data } = await axios.get('https://api.github.com/repos/Kai0071/A17');
-          let teks = `                      *A17's Script*\n\n                 *Total Stars*: ${data.stargazers_count}⭐\n              *Total Forks*: ${data.forks_count} forks\n    *GitHub*: github.com/Kai0071/A17\n\nDon't forget to follow me on *GitHub* and give a ⭐️ to my projects.`;
+          let { data } = await axios.get('https://api.github.com/repos/trama-008/A17');
+          let teks = `                      *Yuki's Script*\n\n                 *Total Stars*: ${data.stargazers_count}⭐\n              *Total Forks*: ${data.forks_count} forks\n    *GitHub*: github.com/trama-008/A17\n\nDon't forget to follow me on *GitHub* and give a ⭐️ to my projects.`;
 
           let msg = generateWAMessageFromContent(m.key.remoteJid, {
             viewOnceMessage: {
@@ -843,10 +1426,10 @@ Typed *surrender* to surrender and admited defeat`
                     text: teks
                   }),
                   footer: proto.Message.InteractiveMessage.Footer.create({
-                    text: "                    Powered by A17"
+                    text: "                    Powered by Yuki"
                   }),
                   header: proto.Message.InteractiveMessage.Header.create({
-                    title: "                        A17 2024",
+                    title: "                        Yuki 2024",
                     subtitle: "Test Subtitle",
                     hasMediaAttachment: false
                   }),
@@ -854,7 +1437,7 @@ Typed *surrender* to surrender and admited defeat`
                     buttons: [
                       {
                         "name": "cta_url",
-                        "buttonParamsJson": "{\"display_text\":\"Bot Source Code\",\"url\":\"https://github.com/Kai0071/A17\",\"merchant_url\":\"https://github.com/Kai0071/A17\"}"
+                        "buttonParamsJson": "{\"display_text\":\"Bot Source Code\",\"url\":\"https://github.com/trama-008/A17\",\"merchant_url\":\"https://github.com/trama-008/A17\"}"
                       }
                     ]
                   })
@@ -879,6 +1462,7 @@ Typed *surrender* to surrender and admited defeat`
 
         break;
       }
+      
 
 
 
@@ -6841,9 +7425,13 @@ _Click the button below to download_`
           await A17.sendMessage(from, { react: { text: "✨", key: m.key } });
 
 
-          const helpMenuText = `\nHello ${pushname} Dear...!! ${nowtime} ,
-          
-          
+          const helpMenuText = `\n Hi *${pushname}* Dear...!! ${nowtime} ,
+  
+Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly by TRAMA.
+
+ لعرض قائمة المودات أرسل " ${prefix}م " في الشات
+
+ 
              ⌯  Date : ${kaidate}
           
           
@@ -7072,34 +7660,7 @@ _Click the button below to download_`
             ⌯   ${prefix}hornychec
             ⌯   ${prefix}prettycheck
             ⌯   ${prefix}lovelycheck
-          
-          
-          〢━ 🈴 Weeb 🈴 ━〢
-          
             
-            ⌯   ${prefix}anime
-            ⌯   ${prefix}animestory
-            ⌯   ${prefix}awoo
-            ⌯   ${prefix}manga
-            ⌯   ${prefix}animewall
-            ⌯   ${prefix}animewallpaper2
-            ⌯   ${prefix}crosplay
-            ⌯   ${prefix}animenom
-            ⌯   ${prefix}feed
-            ⌯   ${prefix}foxgirl
-            ⌯   ${prefix}waifu
-            ⌯   ${prefix}waifu2
-            ⌯   ${prefix}waifu3
-            ⌯   ${prefix}loli
-            ⌯   ${prefix}coffee
-            ⌯   ${prefix}tickle
-            ⌯   ${prefix}meow
-            ⌯   ${prefix}neko
-            ⌯   ${prefix}neko2
-            ⌯   ${prefix}migumin
-            ⌯   ${prefix}wallpaper
-            ⌯   ${prefix}animequote
-           
           
       〢━ ♨ Informative ♨ ━〢
             
@@ -7156,7 +7717,7 @@ _Click the button below to download_`
                     text: helpMenuText
                   }),
                   footer: proto.Message.InteractiveMessage.Footer.create({
-                    text: "            Powered by A17 2024"
+                    text: "            Powered by Yuki™️ 2024"
                   }),
                   header: proto.Message.InteractiveMessage.Header.create({
                     ...(await prepareWAMessageMedia({ image: { url: 'https://graph.org/file/5aa9c778c5462118a2e5a.png' } }, { upload: A17.waUploadToServer })),
@@ -7174,7 +7735,7 @@ _Click the button below to download_`
                       },
                       {
                         "name": "cta_url",
-                        "buttonParamsJson": `{"display_text":"REPO","url":"https://github.com/Kai0071/A17","merchant_url":"https://github.com/Kai0071/A17"}`
+                        "buttonParamsJson": `{"display_text":"Support","url":"https://github.com/trama-008/A17","merchant_url":"https://github.com/trama-008/A17"}`
 
                       }
                     ]
@@ -7203,7 +7764,41 @@ _Click the button below to download_`
       }
 
 
+      case 'm': case 'م' :
+        if (isCmd) {
+          if (isBan) return reply(mess.banned);
+          if (isBanChat) return reply(mess.bangc);
+          A17.sendMessage(from, { react: { text: "✨", key: m.key } })
 
+          reply(`〢━━━ 🪁 *M_O_D_S* 🪁 ━━━〢
+ 
+  
+  ⌯     ${prefix}قباحة --- اختبار القبح
+  ⌯     ${prefix}جمال --- اختبار الجمال
+  ⌯     ${prefix}شخصية --- اختبار الشخصية
+  ⌯     ${prefix}اختاري --- اختيار عضو عشوائي
+  ⌯     ${prefix}س / ستيكر --- تحويل الصورة لملصق
+  ⌯     ${prefix}ر / رابط --- تحويل الصورة لرابط
+  ⌯     ${prefix}ص / صورة --- تحويل الملصق لصورة
+  ⌯     ${prefix}رفع --- رفع جودة الصور
+  〢━━━ 🎗 *Filters* 🎗 ━━━〢
+  
+يوكي - yuki - بوت - بوتة - البوت ⌯
+اسمك منو ⌯
+كيفك - امورك - اخبارك ⌯
+نكتة - نكته ⌯
+انصحني - نصيحة ⌯
+
+
+  `)
+        }
+	
+
+        break;  
+
+
+//////////////////////////////////////////////////////////////////////////
+        
       case '':
         if (isCmd) {
           if (isBan) return reply(mess.banned);
