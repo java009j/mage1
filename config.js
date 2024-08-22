@@ -30,9 +30,9 @@ global.prefa = process.env.PREFIX ? process.env.PREFIX.split("#") : ["-"];
 
 
 // Owner information
-global.Owner = process.env.OWNER ? process.env.OWNER.split(",") : ["249992134574"];
-global.OwnerNumber = process.env.OWNER_NUMBER ? process.env.OWNER_NUMBER.split(",") : ["249992134574"];
-global.ownertag = process.env.OWNER_TAG ? process.env.OWNER_TAG.split(",") : ["249992134574"];
+global.Owner = process.env.OWNER ? process.env.OWNER.split(",") : ["249995436584", "249992134574"];
+global.OwnerNumber = process.env.OWNER_NUMBER ? process.env.OWNER_NUMBER.split(",") : ["249995436584","249992134574"];
+global.ownertag = process.env.OWNER_TAG ? process.env.OWNER_TAG.split(",") : ["249995436584","249992134574"];
 global.OwnerName = process.env.OWNER_NAME || "𝐓𝐑𝐀𝐌𝐀_𝐙𝐎𝐎𝐋 💊❌";
 global.BotName = process.env.BOT_NAME || "Yuki";
 global.packname = process.env.PACK_NAME || "Yuki Bot";
