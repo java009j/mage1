@@ -1791,7 +1791,7 @@ let value = text.trim().split(" ");
 		    ////////////TEST TEST TEST TEST TEST///////////////////
 
 
- case 'reset wallet': {
+ case 'resetw': {
 if (!isCreator) return reply(`الأمر خاص بـ *تراما* فقط!`) 
  var cara = 'cara';
   // Get all users (You need to implement this function)
@@ -1815,11 +1815,11 @@ async function getAllUsers() {
     }
   }
 
-  reply(`تمت العملية بنجاح!`); 
+  reply(`تمت تصفية جميع المحافظ بنجاح!`); 
 }
 break; 
 
-	case 'reset bank': {
+	case 'resetb': {
 if (!isCreator) return reply(`الأمر خاص بـ *تراما* فقط!`) 
  var cara = 'cara';
   // Get all users (You need to implement this function)
@@ -1844,11 +1844,11 @@ async function getAllUsers() {
     }
   }
 
-  reply(`تمت العملية بنجاح!`); 
+  reply(`تمت تصفية جميع الحسابات البنكية بنجاح!`); 
 }
 break; 
 		    
- case 'reset bank c': {
+ case 'resetbankc': {
 if (!isCreator) return reply(`الأمر خاص بـ *تراما* فقط!`) 
  var cara = 'cara';
   // Get all users (You need to implement this function)
@@ -1872,7 +1872,7 @@ async function getAllUsers() {
     }
   }
 
-  reply(`تمت العملية بنجاح!`); 
+  reply(`تمت تصفية جميع الودائع بنجاح!`); 
 }
 break; 
 
