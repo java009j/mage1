@@ -2243,7 +2243,7 @@ let value = text.trim().split(" ");
 
 
       //gamble
-      case 'gamble': case 'lottery':
+      case 'Crypto': case 'تداول':case 'بورصة':
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         if (!m.isGroup) return reply(mess.grouponly)
@@ -2270,7 +2270,7 @@ let value = text.trim().split(" ");
           //if (link1 == link2){
           if (texts[0] === "")
             return reply(
-              `Example:  ${prefix}gamble 100 direction(left,right,up,down)`
+              `Example:  ${prefix}Crypto 100 direction(left,right,up,down)`
             );
           if (!value) return reply("*Please, specify the amount you are gambling with!");
           if (!opp) return reply("Specify the direction you are betting on!");
