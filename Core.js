@@ -1791,7 +1791,7 @@ let value = text.trim().split(" ");
 		    ////////////TEST TEST TEST TEST TEST///////////////////
 
 
- case 'reset': {
+ case 'reset wallet': {
 if (!isCreator) return reply(`الأمر خاص بـ *تراما* فقط!`) 
  var cara = 'cara';
   // Get all users (You need to implement this function)
@@ -1819,6 +1819,62 @@ async function getAllUsers() {
 }
 break; 
 
+	case 'reset bank': {
+if (!isCreator) return reply(`الأمر خاص بـ *تراما* فقط!`) 
+ var cara = 'cara';
+  // Get all users (You need to implement this function)
+async function getAllUsers() {
+  try {
+    const data = await fs.promises.readFile('./storage/user/user.json', 'utf-8');
+    const pendaftar = JSON.parse(data);
+    return pendaftar; // Return the array of user IDs
+  } catch (error) {
+    console.error("Error reading user data:", error);
+    return []; // Return an empty array if there is an error
+  }
+}
+  const allUsers = await getAllUsers(); 
+  for (const user of allUsers) {
+    try {
+      await eco.withdraw(user, cara, 10000000000000000); 
+      await eco.deduct(user, cara, 10000000000000000);
+    } catch (error) {
+      console.error("Random Error happend:", error);
+      // Handle the error appropriately (e.g., log it, send a message)
+    }
+  }
+
+  reply(`تمت العملية بنجاح!`); 
+}
+break; 
+		    
+ case 'reset bank c': {
+if (!isCreator) return reply(`الأمر خاص بـ *تراما* فقط!`) 
+ var cara = 'cara';
+  // Get all users (You need to implement this function)
+async function getAllUsers() {
+  try {
+    const data = await fs.promises.readFile('./storage/user/user.json', 'utf-8');
+    const pendaftar = JSON.parse(data);
+    return pendaftar; // Return the array of user IDs
+  } catch (error) {
+    console.error("Error reading user data:", error);
+    return []; // Return an empty array if there is an error
+  }
+}
+  const allUsers = await getAllUsers(); 
+  for (const user of allUsers) {
+    try {
+      await eco.deductCapacity(user, cara, 10000000000000000); 
+    } catch (error) {
+      console.error("Random Error happend:", error);
+      // Handle the error appropriately (e.g., log it, send a message)
+    }
+  }
+
+  reply(`تمت العملية بنجاح!`); 
+}
+break; 
 
 
 		    
