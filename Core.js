@@ -1517,7 +1517,7 @@ case 'جمال':
         switch (value) {
           case '1k':
           case '1':
-            if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية 100 جنيه! 💵`);
+            if (100 > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية 100 جنيه! 💵`);
             const deduct1 = await eco.deduct(user, cara, 100);
             const add1 = eco.giveCapacity(user, cara, 1000);
             await reply('تم توسيع 1000 جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄')
@@ -1526,7 +1526,7 @@ case 'جمال':
 
           case '10k':
           case '2':
-            if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  1000 جنيه ! 💵`);
+            if (1000 > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  1000 جنيه ! 💵`);
             const deduct2 = await eco.deduct(user, cara, 1000);
             const add2 = eco.giveCapacity(user, cara, 10000);
             await reply(`تم توسيع 10k جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄`)
@@ -1535,8 +1535,8 @@ case 'جمال':
 
             case '100k':
             case '3':
-                    if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  20k جنيه ! 💵`);
-                    const deduct3 = await eco.deduct(user, cara, 20000);
+                    if (25000 > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  25k جنيه ! 💵`);
+                    const deduct3 = await eco.deduct(user, cara, 25000);
                     const add3 = eco.giveCapacity(user, cara, 100000);
                     await reply(`تم توسيع 100k جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄`)
 
@@ -1544,7 +1544,7 @@ case 'جمال':
 
           case '1m':
           case '4':
-            if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  250k جنيه ! 💵`);
+            if (250000 > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  250k جنيه ! 💵`);
             const deduct4 = await eco.deduct(user, cara, 250000);
             const add4 = eco.giveCapacity(user, cara, 1000000);
             await reply(`تم توسيع 1M جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄`)
@@ -1553,7 +1553,7 @@ case 'جمال':
 
           case '10m':
           case '5':
-            if (k > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  2.5M جنيه ! 💵`);
+            if (2500000 > balance.wallet) return reply(`عذراً ، ليس لديك مال كافي ، سعر الترقية  2.5M جنيه ! 💵`);
             const deduct5 = await eco.deduct(user, cara, 2500000);
             const add5 = eco.giveCapacity(user, cara, 10000000);
               await reply('تم توسيع 10M جنيه في خزنتك على بنك يوكي الوطني  ( YNB)  بنجاح 🗄')
