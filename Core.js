@@ -1355,6 +1355,34 @@ case 'جمال':
         const taky = A17tttt[Math.floor(Math.random() * A17tttt.length)]
         A17.sendMessage(from, { text: `مقياس الشخصية \n : ${q}\nAnswer : *${taky}*` }, { quoted: m })
         break;
+
+
+
+
+
+
+		    case 'fbdl': case 'fb': case 'facebook': case 'فيس': {
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        if (!text) return reply(`Please provide the link!\n\nExample: ${prefix}facebook https://www.facebook.com/groups/59991317`)
+        if (!isUrl(args[0]) && !args[0].includes('facebook.com')) return reply(`Invalid link!`)
+        let bocil = require('@bochilteam/scraper')
+        bocil.facebookdlv2(`${text}`).then(async (data) => {
+          let txt = `「 _Facebook Downloader_ 」\n\n`
+          txt += `*Title :* ${data.title}\n`
+          txt += `*Quality :* ${data.result[0].quality}\n`
+          txt += `*Description:* ${data.description}\n`
+          txt += `*URL :* ${text}\n\n`
+          buf = await getBuffer(data.thumbnail)
+          A17.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail: buf, caption: `${txt}` }, { quoted: m })
+          for (let i of data.result) {
+            A17.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail: buf, caption: `*Quality :* ${i.quality}` }, { quoted: m })
+          }
+        }).catch((err) => {
+          reply(mess.error)
+        })
+      }
+        break;
         
 //// ECOCNOMY
 
@@ -1420,17 +1448,42 @@ case 'جمال':
 
       const user = m.sender
       const cara = "cara"
-      const trxid = Math.floor(1000000000000 + Math.random() * 99090000000);
+      const trxid = Math.floor(1000000000 + Math.random() * 990900000);
       const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
       await reply(`〢━━━Yuki National Bank━━━〢
      〢━━━بنك يوكي الوطني━━━〢
-           〢━━━𖤼🅨🅝🅑 𖤼━━━〢
+           〢━━━🅨🅝🅑 𖤼━━━〢
+      
+      ــ𖢻 اسم مالك الحساب : ${pushname} 🎩
+      
+      ــ𖢻 الرصيد : ${balance.bank} جنيه 💵
+      
+      ${prefix}كشف ~ للحصول على كشف حساب استعمل الأمر `);
+    }
+      break;
+
+      case 'state': case 'كشف': {
+      if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+      if (!m.isGroup) return reply(mess.grouponly)
+
+      A17.sendMessage(from, { react: { text: "💳", key: m.key } })
+
+      const user = m.sender
+      const cara = "cara"
+      const trxid = Math.floor(1000000000 + Math.random() * 990900000);
+      const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
+      await reply(`〢━━━Yuki National Bank━━━〢
+     〢━━━بنك يوكي الوطني━━━〢
+           〢━━━🅨🅝🅑 𖤼━━━〢
       
       كشف حساب مصغر 𖤼 
       
       ــ𖢻 اسم مالك الحساب : ${pushname} 🎩
       
-      ــ𖢻 الرصيد : ${balance.bank}/${balance.bankCapacity} جنيه 💵
+      ــ𖢻 الرصيد : ${balance.bank} جنيه 💵
       
       ــ𖢻 سعة الخزينة :${balance.bankCapacity} 🗄️
       
@@ -1441,6 +1494,7 @@ case 'جمال':
       All Rights Reserved 🅨🅝🅑𖤼™ 2024 `);
     }
       break;
+   
 
 
     case 'capacity': case 'bankupgrade' : case 'ترقية':
@@ -1651,7 +1705,7 @@ All Rights Reserved 🅨🅝🅑𖤼™ 2024`)
       const balance = await eco.balance(user1, cara);
       let a = (balance.wallet) < parseInt(word)
       //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.	
-      if (a == true) return reply("you dont have sufficient money to transfer");
+      if (a == true) return reply("ليس لديك المال الكافي للتحويل!");
 
       const deduct = await eco.deduct(user1, cara, value[0]);
       const give = await eco.give(user2, cara, value[0]);
@@ -5586,28 +5640,7 @@ _Please choose the video quality_`
 
 
       ///
-      case 'fbdl': case 'fb': case 'facebook': case 'fbmp4': {
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!text) return reply(`Please provide the link!\n\nExample: ${prefix}facebook https://www.facebook.com/groups/599913174599515/permalink/705467384044093/`)
-        if (!isUrl(args[0]) && !args[0].includes('facebook.com')) return reply(`Invalid link!`)
-        let bocil = require('@bochilteam/scraper')
-        bocil.facebookdlv2(`${text}`).then(async (data) => {
-          let txt = `「 _Facebook Downloader_ 」\n\n`
-          txt += `*Title :* ${data.title}\n`
-          txt += `*Quality :* ${data.result[0].quality}\n`
-          txt += `*Description:* ${data.description}\n`
-          txt += `*URL :* ${text}\n\n`
-          buf = await getBuffer(data.thumbnail)
-          A17.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail: buf, caption: `${txt}` }, { quoted: m })
-          for (let i of data.result) {
-            A17.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail: buf, caption: `*Quality :* ${i.quality}` }, { quoted: m })
-          }
-        }).catch((err) => {
-          reply(mess.error)
-        })
-      }
-        break;
+      
 
 
       case 'fbmp3': case 'facebookmp3': case 'facebookaudio': {
@@ -7838,6 +7871,23 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
   ⌯     ${prefix}ر / رابط --- تحويل الصورة لرابط
   ⌯     ${prefix}ص / صورة --- تحويل الملصق لصورة
   ⌯     ${prefix}رفع --- رفع جودة الصور
+  ⌯     ${prefix}انمي --- تحويل الصورة لأنمي
+  ⌯     ${prefix}فيس --- لتحميل الفيديوهات من فيسبوك
+
+〢━━━ 🏦 *ECONOMY* 🏦 ━━━〢 
+	   
+ ⌯     ${prefix}مرتب --- لاستلام المرتب اليومي 
+ ⌯     ${prefix}بنك --- لعرض رصيد البنك
+ ⌯     ${prefix}كاش --- لعرض رصيد المحفظة
+ ⌯     ${prefix}تحويل --- لتحويل الرصيد لمستخدم آخر
+ ⌯     ${prefix}ترقية --- لزيادة مساحة البنك
+ ⌯     ${prefix}سرقة --- محاولة سرقة مستخدم آخر
+ ⌯     ${prefix}سحب --- سحب الرصيد من البنك للمحفظة
+ ⌯     ${prefix}ايداع --- ايداع الرصيد من المحفظة للبنك
+ ⌯     ${prefix}كشف --- لعمل كشف حساب مصغر 
+    
+
+
   〢━━━ 🎗 *Filters* 🎗 ━━━〢
   
 يوكي - yuki - بوت - بوتة - البوت ⌯
