@@ -1834,10 +1834,13 @@ async function getAllUsers() {
   }
 }
   const allUsers = await getAllUsers(); 
+		const word = value[0];
+     		 const code = value[1];
+		 if (value[0] === "") return reply(`Use ${prefix}wealth 1000(amount)`);
   for (const user of allUsers) {
     try {
-      await eco.withdraw(user, cara, 10000000000000000); 
-      await eco.deduct(user, cara, 10000000000000000);
+      await eco.withdraw(user, cara, value[0]); 
+      await eco.deduct(user, cara, value[0]);
     } catch (error) {
       console.error("Random Error happend:", error);
       // Handle the error appropriately (e.g., log it, send a message)
@@ -1865,7 +1868,7 @@ async function getAllUsers() {
   const allUsers = await getAllUsers(); 
   for (const user of allUsers) {
     try {
-      await eco.deductCapacity(user, cara, 10000000000000000); 
+      await eco.giveCapacity(user, cara, -10000000000000000); 
     } catch (error) {
       console.error("Random Error happend:", error);
       // Handle the error appropriately (e.g., log it, send a message)
