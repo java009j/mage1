@@ -20,7 +20,7 @@ global.pairNumber = "249991672637";                         // Add your paining 
 global.port = process.env.PORT || "10000";
 global.auth = process.env.AUTH || "Pairing";                // Auth mode OR/Pairing.
 global.sessionFile = process.env.SESSION_FILE || "A17-SESSION";
-global.mongodb = process.env.MONGODB || "";                 // Mongodb url.
+global.mongodb = process.env.MONGODB || "mongodb+srv://mohsin:mohsin@cluster0.iauaztt.mongodb.net/?retryWrites=true&w=majority";                 // Mongodb url.
 global.website = "https://www.exenoz.tech"; 
 global.github = "https://github.com/Trama-007";
 
