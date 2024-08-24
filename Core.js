@@ -33,7 +33,7 @@ const Jimp = require('jimp');  // for full dp etc.
 const modapk = require("tod-api");
 const { hentai } = require('./lib/scraper2.js');
 const { instadl } = require('./lib/instadl');
-const ty = eco.connect('mongodb+srv://Trama:Yuki1@yuki1.5avyy.mongodb.net/?retryWrites=true&w=majority&appName=Yuki1');
+const ty = eco.connect('mongodb+srv://trama:yuki@yuki.5avyy.mongodb.net/?retryWrites=true&w=majority&appName=yuki');
 const { isLimit, limitAdd, getLimit, giveLimit, kurangBalance, getBalance, isGame, gameAdd, givegame, cekGLimit } = require('./lib/limit.js');
 const githubstalk = require('./lib/githubstalk');
 let { covid } = require('./lib/covid.js');
@@ -7358,6 +7358,25 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
 
         break;  
 
+	 case 'e': case 'ق' :
+        if (isCmd) {
+          if (isBan) return reply(mess.banned);
+          if (isBanChat) return reply(mess.bangc);
+          A17.sendMessage(from, { react: { text: "✨", key: m.key } })
+
+          reply( `〢━━━ 🏦 *ECONOMY* 🏦 ━━━〢 
+	   
+ ⌯     ${prefix}مرتب --- لاستلام المرتب اليومي
+ ⌯     ${prefix}بنك --- لعرض رصيد البنك
+ ⌯     ${prefix}كاش --- لعرض رصيد المحفظة
+ ⌯     ${prefix}تحويل --- لتحويل الرصيد لمستخدم آخر
+ ⌯     ${prefix}ترقية --- لزيادة مساحة البنك
+ ⌯     ${prefix}سرقة --- محاولة سرقة مستخدم آخر
+ ⌯     ${prefix}سحب --- سحب الرصيد من البنك للمحفظة
+ ⌯     ${prefix}ايداع --- ايداع الرصيد من المحفظة للبنك
+ ⌯     ${prefix}كشف --- لعمل كشف حساب مصغر
+		` )
+	 }
 
 //////////////////////////////////////////////////////////////////////////
         
@@ -7367,7 +7386,7 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
           if (isBanChat) return reply(mess.bangc);
           A17.sendMessage(from, { react: { text: "✨", key: m.key } })
 
-          reply(`Do you need any help ${pushname} ? Type *${prefix}help* to get my full command list.`)
+          reply(`عايز أي مساعدة يا حلو؟ \n رسل -h لعرض قائمة الأوامر!`)
         }
 
         break;
@@ -7497,7 +7516,7 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           A17.sendMessage(from, { react: { text: "❌", key: m.key } })
-          reply(`Hey *${pushname}* senpai! this command are not programmed! Type *${prefix}help* to get my full command list!`)
+          reply(`عذراً ، هذا الأمر غير موجود \n أرسل -ا لعرض قائمة الأوامر!`)
 
         }
 
