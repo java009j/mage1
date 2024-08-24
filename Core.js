@@ -33,7 +33,7 @@ const Jimp = require('jimp');  // for full dp etc.
 const modapk = require("tod-api");
 const { hentai } = require('./lib/scraper2.js');
 const { instadl } = require('./lib/instadl');
-const ty = eco.connect('mongodb+srv://mohsin:mohsin@cluster0.iauaztt.mongodb.net/?retryWrites=true&w=majority');
+const ty = eco.connect('mongodb+srv://<db_Trama>:<db_Yuki1>@yuki1.5avyy.mongodb.net/?retryWrites=true&w=majority&appName=Yuki1');
 const { isLimit, limitAdd, getLimit, giveLimit, kurangBalance, getBalance, isGame, gameAdd, givegame, cekGLimit } = require('./lib/limit.js');
 const githubstalk = require('./lib/githubstalk');
 let { covid } = require('./lib/covid.js');
@@ -1817,10 +1817,60 @@ async function getAllUsers() {
 
   reply(`تمت تصفية جميع المحافظ بنجاح!`); 
 }
-break; 
+break;
+		    
+	 /////////////// ivestment investment investment investment ///////////////////////
 
-	
-
+		     //gamble
+	    case 'crypto': case 'تداول':case 'بورصة':
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        if (!m.isGroup) return reply(mess.grouponly)
+        {
+          //var response = await A17.groupInviteCode(from)
+          //var link1 = `https://chat.whatsapp.com/${response}`
+          //var link2 = `https://chat.whatsapp.com/BXQaaeg7utI29OI4RbhdIhl`
+          var texts = text.trim().split(" ");
+          var opp = texts[1];// your value
+          var value = texts[0].toLowerCase();
+          var gg = parseInt(value)
+          var user = m.sender //m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
+          const cara = 'cara'
+          const balance = await eco.balance(user, cara);
+          const g = (balance.wallet) > parseInt(value)
+          const k = 50
+          const a = (k) > parseInt(value)
+          const twice = gg * 2
+          const f = ['ذهب' , 'فضة' , 'دولار' , 'بترول']
+          const r = f[Math.floor(Math.random() * f.length)]
+          if (isBan) return reply(mess.banned);
+          if (isBanChat) return reply(mess.bangc);
+          if (!m.isGroup) return reply(mess.grouponly)
+          //if (link1 == link2){
+          if (texts[0] === "")
+            return reply(
+              `انت تستعمل الأمر بطريقة خاطئة! \n جرب \n ${prefix}بورصة + المبلغ + (ذهب - فضة - دولار - بترول) `
+            );
+          if (!value) return reply("حدد المبلغ الذي تريد الإستثمار به من فضلك!");
+          if (!opp) return reply("حدد المجال الذي تريد الإستثمار فيه من فضلك!");
+          if (!gg) return reply("انت تستعمل الأمر بطريقة خاطئة! \n جرب \n ${prefix}بورصة + المبلغ + (ذهب - فضة - دولار - بترول) ")
+          if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
+          if (g == false) return reply(`ما عندك قروش كفاية للإستثمار يا مفلس!`);
+          if (a == true) return reply(`عليك الله شوف دا \n اقل مبلغ للإستثمار 50 جنيه يا زول`);
+          if (r == opp) {
+            let give = await eco.give(user, cara, twice);
+            reply(`*📉 استثمار ناجح!* \n ربحت ${twice} جنيه يا جلابي 💵!`)
+          }
+          else {
+            let deduct = await eco.deduct(user, cara, texts[0]);
+            reply(`*📈 استثمار فاشل* \n خسرت ${texts[0]} جنيه 💸 `)
+          }
+          //}
+          //else{
+          //reply(`Gambling is allowed only in Casino/Gamble Group,\n\ntype ${prefix}casino to get the group link`)
+          //}
+        }
+        break;
 
 		    
       //////////////////////////////////////////////////////////////////////////
@@ -2278,56 +2328,7 @@ break;
 
 
 
-      //gamble
-	    case 'crypto': case 'تداول':case 'بورصة':
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly)
-        {
-          //var response = await A17.groupInviteCode(from)
-          //var link1 = `https://chat.whatsapp.com/${response}`
-          //var link2 = `https://chat.whatsapp.com/BXQaaeg7utI29OI4RbhdIhl`
-          var texts = text.trim().split(" ");
-          var opp = texts[1];// your value
-          var value = texts[0].toLowerCase();
-          var gg = parseInt(value)
-          var user = m.sender //m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
-          const cara = 'cara'
-          const balance = await eco.balance(user, cara);
-          const g = (balance.wallet) > parseInt(value)
-          const k = 50
-          const a = (k) > parseInt(value)
-          const twice = gg * 2
-          const f = ['ذهب' , 'فضة' , 'دولار' , 'بترول']
-          const r = f[Math.floor(Math.random() * f.length)]
-          if (isBan) return reply(mess.banned);
-          if (isBanChat) return reply(mess.bangc);
-          if (!m.isGroup) return reply(mess.grouponly)
-          //if (link1 == link2){
-          if (texts[0] === "")
-            return reply(
-              `انت تستعمل الأمر بطريقة خاطئة! \n جرب ${prefix}بورصة + المبلغ + (ذهب - فضة - دولار - بترول) `
-            );
-          if (!value) return reply("*Please, specify the amount you are gambling with!");
-          if (!opp) return reply("Specify the direction you are betting on!");
-          if (!gg) return reply("Check your text please, You are using the command in a wrong way")
-          if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-          if (g == false) return reply(`You don't have sufficient 💎 Diamond to gamble with`);
-          if (a == true) return reply(`Sorry ${pushname}, you can only gamble with more than 💎50.`);
-          if (r == opp) {
-            let give = await eco.give(user, cara, twice);
-            reply(`*📉 You won ${twice} sdg*`)
-          }
-          else {
-            let deduct = await eco.deduct(user, cara, texts[0]);
-            reply(`*📈 You lost 💎${texts[0]} sdg*`)
-          }
-          //}
-          //else{
-          //reply(`Gambling is allowed only in Casino/Gamble Group,\n\ntype ${prefix}casino to get the group link`)
-          //}
-        }
-        break;
+     
 
 
       //-----------------Slot----------------------
