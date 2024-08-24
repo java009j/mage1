@@ -1818,6 +1818,35 @@ async function getAllUsers() {
   reply(`تمت تصفية جميع المحافظ بنجاح!`); 
 }
 break;
+
+
+	case 'gift': case 'توزيع': {
+	if (!isCreator) return reply(`هاك القيفت دي🍆`) 
+    var cara = 'cara';
+  // Get all users (You need to implement this function)
+async function getAllUsers() {
+  try {
+    const data = await fs.promises.readFile('./storage/user/user.json', 'utf-8');
+    const pendaftar = JSON.parse(data);
+    return pendaftar; // Return the array of user IDs
+  } catch (error) {
+    console.error("Error reading user data:", error);
+    return []; // Return an empty array if there is an error
+  }
+}
+  const allUsers = await getAllUsers(); 
+  for (const user of allUsers) {
+    try {
+      await eco.give(user, cara, 10000); 
+    } catch (error) {
+      console.error("Wealth ritual error:", error);
+      // Handle the error appropriately (e.g., log it, send a message)
+    }
+  }
+
+  reply(`تم توزيع 10k جنيه على الجميع بنجاح!`); 
+}
+break; 
 		    
 	 /////////////// ivestment investment investment investment ///////////////////////
 
