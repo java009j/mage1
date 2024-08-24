@@ -33,7 +33,7 @@ const Jimp = require('jimp');  // for full dp etc.
 const modapk = require("tod-api");
 const { hentai } = require('./lib/scraper2.js');
 const { instadl } = require('./lib/instadl');
-const ty = eco.connect('mongodb+srv://<db_Trama>:<db_Yuki1>@yuki1.5avyy.mongodb.net/?retryWrites=true&w=majority&appName=Yuki1');
+const ty = eco.connect('mongodb+srv://Trama:Yuki1@yuki1.5avyy.mongodb.net/?retryWrites=true&w=majority&appName=Yuki1');
 const { isLimit, limitAdd, getLimit, giveLimit, kurangBalance, getBalance, isGame, gameAdd, givegame, cekGLimit } = require('./lib/limit.js');
 const githubstalk = require('./lib/githubstalk');
 let { covid } = require('./lib/covid.js');
