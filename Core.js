@@ -794,7 +794,7 @@ if (smallinput.includes('البوت') || smallinput.includes('بوتة')){
          .webp({ animated: true }) // Set animated to true for animated stickers
          .toBuffer();
        // Send sticker using A17 library (replace with your actual function)
-       A17.sendMessage(from, { sticker: webpBuffer }, { quoted: m });  
+       A17.sendMessage(from, { image: webpBuffer }, { quoted: m });  
    }
     //-----------------------------------------------------------------------------------------------------------------------------------//
 
@@ -1819,65 +1819,7 @@ async function getAllUsers() {
 }
 break; 
 
-	case 'resetb': {
-if (!isCreator) return reply(`الأمر خاص بـ *تراما* فقط!`) 
- var cara = 'cara';
-  // Get all users (You need to implement this function)
-async function getAllUsers() {
-  try {
-    const data = await fs.promises.readFile('./storage/user/user.json', 'utf-8');
-    const pendaftar = JSON.parse(data);
-    return pendaftar; // Return the array of user IDs
-  } catch (error) {
-    console.error("Error reading user data:", error);
-    return []; // Return an empty array if there is an error
-  }
-}
-  const allUsers = await getAllUsers(); 
-		const word = value[0];
-     		 const code = value[1];
-		 if (value[0] === "") return reply(`Use ${prefix}wealth 1000(amount)`);
-  for (const user of allUsers) {
-    try {
-      await eco.withdraw(user, cara, value[0]); 
-      await eco.deduct(user, cara, value[0]);
-    } catch (error) {
-      console.error("Random Error happend:", error);
-      // Handle the error appropriately (e.g., log it, send a message)
-    }
-  }
-
-  reply(`تمت تصفية جميع الحسابات البنكية بنجاح!`); 
-}
-break; 
-		    
- case 'resetbankc': {
-if (!isCreator) return reply(`الأمر خاص بـ *تراما* فقط!`) 
- var cara = 'cara';
-  // Get all users (You need to implement this function)
-async function getAllUsers() {
-  try {
-    const data = await fs.promises.readFile('./storage/user/user.json', 'utf-8');
-    const pendaftar = JSON.parse(data);
-    return pendaftar; // Return the array of user IDs
-  } catch (error) {
-    console.error("Error reading user data:", error);
-    return []; // Return an empty array if there is an error
-  }
-}
-  const allUsers = await getAllUsers(); 
-  for (const user of allUsers) {
-    try {
-      await eco.giveCapacity(user, cara, -10000000000000000); 
-    } catch (error) {
-      console.error("Random Error happend:", error);
-      // Handle the error appropriately (e.g., log it, send a message)
-    }
-  }
-
-  reply(`تمت تصفية جميع الودائع بنجاح!`); 
-}
-break; 
+	
 
 
 		    
@@ -2356,7 +2298,7 @@ break;
           const k = 50
           const a = (k) > parseInt(value)
           const twice = gg * 2
-          const f = ["up", "right", "left", "down", "up", "left", "down", "right", "up", "down", "right", "left"]
+          const f = ['ذهب' , 'فضة' , 'دولار' , 'بترول']
           const r = f[Math.floor(Math.random() * f.length)]
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
@@ -2364,7 +2306,7 @@ break;
           //if (link1 == link2){
           if (texts[0] === "")
             return reply(
-              `Example:  ${prefix}Crypto 100 direction(left,right,up,down)`
+              `انت تستعمل الأمر بطريقة خاطئة! \n جرب ${prefix}بورصة + المبلغ + (ذهب - فضة - دولار - بترول) `
             );
           if (!value) return reply("*Please, specify the amount you are gambling with!");
           if (!opp) return reply("Specify the direction you are betting on!");
