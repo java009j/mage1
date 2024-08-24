@@ -2337,7 +2337,7 @@ break;
 
 
       //gamble
-      case 'Crypto': case 'تداول':case 'بورصة':
+	    case 'crypto': case 'تداول':case 'بورصة':
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         if (!m.isGroup) return reply(mess.grouponly)
@@ -2374,11 +2374,11 @@ break;
           if (a == true) return reply(`Sorry ${pushname}, you can only gamble with more than 💎50.`);
           if (r == opp) {
             let give = await eco.give(user, cara, twice);
-            reply(`*📉 You won 💎${twice}*`)
+            reply(`*📉 You won ${twice} sdg*`)
           }
           else {
             let deduct = await eco.deduct(user, cara, texts[0]);
-            reply(`*📈 You lost 💎${texts[0]}*`)
+            reply(`*📈 You lost 💎${texts[0]} sdg*`)
           }
           //}
           //else{
