@@ -1902,7 +1902,57 @@ break;
         break;
 
 
+///////////// test test test test test test test test //////////////////////
 
+
+
+
+
+		    case 'playbomb': case 'bomb': {
+				if (game.tebakbom[m.sender]) return replygcxlicon('There Are Still Unfinished Sessions!')
+				function shuffle(array) {
+					return array.sort(() => Math.random() - 0.5);
+				}
+				game.tebakbom[m.sender] = {
+					petak: shuffle([0, 0, 0, 2, 0, 2, 0, 2, 0, 0]),
+					board: ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'],
+					bomb: 3,
+					lolos: 7,
+					pick: 0,
+					nyawa: ['❤️', '❤️', '❤️'],
+					waktu: setTimeout(() => {
+						if (game.tebakbom[m.sender]) replygcxlicon(`_Time ${command} finished_`)
+						delete game.tebakbom[m.sender];
+					}, 120000)
+				}
+				replygcxlicon(`*GUESS THE BOMB*\n\n${game.tebakbom[m.sender].board.join("")}\n\nChoose that number! and don't get hit by a bomb!\nBomb : ${game.tebakbom[m.sender].bomb}\nLife : ${game.tebakbom[m.sender].nyawa.join("")}`);
+			}
+			break ;
+
+
+		    case 'suitpvp': case 'suit': {
+				let poin = 10
+				let poin_lose = 10
+				let timeout = 60000
+				if (Object.values(game.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) replygcxlicon(`Finish your previous suit`)
+				if (m.mentionedJid[0] === m.sender) return replygcxlicon(`Can't play with myself !`)
+				if (!m.mentionedJid[0]) return replygcxlicon(`_Who do you want to challenge?_\nTag the person..\n\nExample : ${prefix}suit @${owner[0]}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
+				if (Object.values(game.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0]))) return replygcxlicon(`The person you are challenging is playing suit with someone else :(`)
+				let id = 'suit_' + new Date() * 1
+				let caption = `_*SUIT PvP*_\n\n@${m.sender.split`@`[0]} challenge @${m.mentionedJid[0].split`@`[0]} to play suits\n\nPlease @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
+				game.suit[id] = {
+					chat: replygcxlicon(caption),
+					id: id,
+					p: m.sender,
+					p2: m.mentionedJid[0],
+					status: 'wait',
+					waktu: setTimeout(() => {
+						if (game.suit[id]) replygcxlicon(`_Suit time is up_`)
+						delete game.suit[id]
+					}, 60000), poin, poin_lose, timeout
+				}
+			}
+			break ; 
 		     
 		    
       //////////////////////////////////////////////////////////////////////////
