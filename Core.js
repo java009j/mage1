@@ -7289,7 +7289,7 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
                       },
                       {
                         "name": "cta_url",
-                        "buttonParamsJson": `{"display_text":"Support Group","url":"https://chat.whatsapp.com/BCUPpF7gKTg6Sx9y2WSIuF","merchant_url":"https://chat.whatsapp.com/BCUPpF7gKTg6Sx9y2WSIuF"}`
+                        "buttonParamsJson": `{"display_text":"Support Group","url":"https://github.com/trama-008","merchant_url":"https://github.com/trama-008"}`
 
                       }
                     ]
