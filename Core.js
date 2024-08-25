@@ -1909,7 +1909,7 @@ break;
 
 
 		    case 'playbomb': case 'bomb': {
-				if (game.tebakbom[m.sender]) return replygcxlicon('There Are Still Unfinished Sessions!')
+				if (game.tebakbom[m.sender]) return reply('There Are Still Unfinished Sessions!')
 				function shuffle(array) {
 					return array.sort(() => Math.random() - 0.5);
 				}
@@ -1921,11 +1921,11 @@ break;
 					pick: 0,
 					nyawa: ['❤️', '❤️', '❤️'],
 					waktu: setTimeout(() => {
-						if (game.tebakbom[m.sender]) replygcxlicon(`_Time ${command} finished_`)
+						if (game.tebakbom[m.sender]) reply(`_Time ${command} finished_`)
 						delete game.tebakbom[m.sender];
 					}, 120000)
 				}
-				replygcxlicon(`*GUESS THE BOMB*\n\n${game.tebakbom[m.sender].board.join("")}\n\nChoose that number! and don't get hit by a bomb!\nBomb : ${game.tebakbom[m.sender].bomb}\nLife : ${game.tebakbom[m.sender].nyawa.join("")}`);
+				reply(`*GUESS THE BOMB*\n\n${game.tebakbom[m.sender].board.join("")}\n\nChoose that number! and don't get hit by a bomb!\nBomb : ${game.tebakbom[m.sender].bomb}\nLife : ${game.tebakbom[m.sender].nyawa.join("")}`);
 			}
 			break ;
 
