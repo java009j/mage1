@@ -1901,6 +1901,35 @@ break;
         }
         break;
 
+
+
+		     case 'thread': case 'bcast': {
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        if (!isCreator) return reply(mess.botowner)
+        if (!args.join(" ")) return reply(`Please enter some text to broadcast! \n\nExample : ${prefix + command} ${global.OwnerName}`)
+        let anu = await store.chats.all().map(v => v.id)
+        reply(`Send Broadcast To ${anu.length} Chat\nTime's up ${anu.length * 1.5} second`)
+        for (let yoi of anu) {
+          await sleep(1500)
+          let btn = [{
+            quickreplyButton: {
+              displayText: '💡 Menu 💡',
+              id: '-menu'
+            }
+          }, {
+            quickreplyButton: {
+              displayText: 'Bot Owner',
+              id: '-owner'
+            }
+          }]
+          let txt = `「 *${global.OwnerName}'s Broadcast* 」\n\n${text}`
+          A17.send5ButImg(yoi, txt, `${global.BotName}`, BotLogo, btn, Thumb)
+        }
+        reply('Broadcast Sent !')
+      }
+        break;
+
 		    
       //////////////////////////////////////////////////////////////////////////
     /*  case 'sc': case 'script': case 'sourcecode': {
