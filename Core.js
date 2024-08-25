@@ -1821,7 +1821,7 @@ break;
 
 
 	case 'gift': case 'توزيع': {
-	if (!isCreator) return reply(`هاك القيفت دي🍆`) 
+	if (!isCreator) return reply(`الأمر خاص ب *تراما* فقط!`) 
     var cara = 'cara';
   // Get all users (You need to implement this function)
 async function getAllUsers() {
@@ -1904,6 +1904,13 @@ break;
 
 ///////////// test test test test test test test test //////////////////////
 
+/* case 'ميمز' : case 'memes' :
+		    {
+if (isban) return reply (mess.banned);
+if (isBanChat) return reply (mess.bangc);
+	memeURL = [ 
+ 
+*/
 
 
 
@@ -2439,7 +2446,7 @@ break;
       break;
       */
 
-
+/*
       case 'slot': case 'spin': {
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
@@ -2505,7 +2512,7 @@ break;
           reply(`*You can only play this game during weekends*\n\n*🌿 Friday*\n*🎏 Saturday*\n*🎐 Sunday*`)
         }
       }
-        break;
+        break; */
 
 
 
