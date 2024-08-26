@@ -1904,16 +1904,40 @@ break;
 
 ///////////// test test test test test test test test //////////////////////
 
-/* case 'ميمز' : case 'memes' :
+/ case 'ميمز' : case 'memes' :
 		    {
 if (isban) return reply (mess.banned);
 if (isBanChat) return reply (mess.bangc);
-	memeURL = [ 
+	let memeURL = ['' ,
+		   '',
+		   '',
+		   '',
+		   ''
+		   ] ;
+
+		const randmeme = memeURL[math.floor(math.random()*memeURL.leangth)] ;
+		let media = await getBuffer(randmeme);
+                const webpBuffer = await sharp(media)
+                 .webp() 
+                 .toBuffer();
+               A17.sendMessage(from, { image: webpBuffer }, { quoted: m });   
+           }
+             }	    
  
 */
 
-
-
+	///// nsfw nsfw nsfw nsfw nsfw nsfw nsfw nsfw nsfw////////////////////////////
+ if (smallinput.includes('cock') || smallinput.includes('dick') || smallinput.includes('نيك') || smallinput.includes('boobs') || smallinput.includes('خول') || smallinput.includes('Transform') || smallinput.includes('سكس') || smallinput.includes('hentai') || smallinput.includes('شرموط') || smallinput.includes('sex') || smallinput.includes('انيك') || smallinput.includes('كسم') || smallinput.includes('سكس') || smallinput.includes('قضيب') || smallinput.includes('زبي')){
+    if (!m.isGroup && !isyuki && !isCreator) {
+    await A17.sendMessage(from, { text: 'بلوك' });
+    await A17.sendContact(m.chat, global.Owner, m)
+        let users = m.sender
+        await A17.updateBlockStatus(users, 'block').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
+      const txtmsg = `*تم الجغم*`
+        for (let mod of global.Owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != '6297175943@s.whatsapp.net'))
+          await A17.sendMessage(`${mod}`, { text: `${txtmsg}` }, { quoted: m })
+          await A17.sendMessage(`120363026915700516@g.us`, { text: `${txtmsg}`, mentions: groupAdmins }, { quoted: m })
+      }    }
 
 		    
 		     
@@ -6253,20 +6277,20 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
 
 
       //
-      case 'smug2':
+      /* case 'smug2':
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         reply(mess.waiting)
         waifudd = await axios.get(`https://nekos.life/api/v2/img/smug`)
         /*       var wbuttsss = [
 {buttonId: `${prefix}smug2`, buttonText: {displayText: `>>`}, type: 1},
-] */
+] 
         let button1ssMessages = {
           image: { url: waifudd.data.url },
           caption: `Here it is...`,
           /*  footer: `${global.BotName}`,
             buttons: wbuttsss,
-            headerType: 4 */
+            headerType: 4 
         }
         await A17.sendMessage(m.chat, button1ssMessages, { quoted: m }).catch(err => {
           return ('Error!')
@@ -6285,13 +6309,13 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
 
         /* var wbuttsss = [
    {buttonId: `${prefix}foxgirl`, buttonText: {displayText: `>>`}, type: 1},
-   ] */
+   ] 
         let button12ssMessages = {
           image: { url: waifudd.data.url },
           caption: `Awoooo...`,
           /* footer: `${global.BotName}`,
           buttons: wbuttsss,
-          headerType: 4 */
+          headerType: 4 
         }
         await A17.sendMessage(m.chat, button12ssMessages, { quoted: m }).catch(err => {
           return ('Error!')
@@ -6306,13 +6330,13 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
         reply(mess.waiting)
         waifudd = await axios.get(`https://waifu.pics/api/sfw/nom`)
         /*  let xxhnekobot = [
-          {buttonId: `${prefix}animenom`, buttonText: {displayText: `>>`}, type: 1},
-          ]  */
+          {buttonId `${prefix}animenom`, buttonText: {displayText: `>>`}, type: 1},
+          ]  
         let xx1button3Messages = {
           image: { url: waifudd.data.url },
           caption: `Here it is...`,
           /*  buttons: xxhnekobot,
-          headerType: 1 */
+          headerType: 1 
         }
         await A17.sendMessage(m.chat, xx1button3Messages, { quoted: m }).catch(err => {
           return ('Error!')
@@ -6320,7 +6344,7 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
         break;
 
 
-      case 'waifu3':
+    /*  case 'waifu3':
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         if (!m.isGroup) return reply(mess.grouponly);
@@ -6328,22 +6352,22 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
         waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)
         /*        var wbuttsss = [
 {buttonId: `${prefix}waifu3`, buttonText: {displayText: `>>`}, type: 1},
-] */
+] 
         let button112ssMessages = {
           image: { url: waifudd.data.url },
           caption: `Here it is...`,
           /*   footer: `${global.BotName}`,
              buttons: wbuttsss,
-             headerType: 4 */
+             headerType: 4 
         }
         await A17.sendMessage(m.chat, button112ssMessages, { quoted: m }).catch(err => {
           return ('Error!')
         })
-        break;
+        break; */
 
 
       //
-      case 'crossplay': case 'crosplay': case 'cosplay':
+   /*   case 'crossplay': case 'crosplay': case 'cosplay':
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         if (!m.isGroup) return reply(mess.grouponly);
@@ -6351,15 +6375,15 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
 
         /*   const buttons = [
    {buttonId: '-crossplay', buttonText: {displayText: '>>'}, type: 1},
-       ]     */
+       ]     
 
         const cosplybutton = {
           image: { url: 'https://fantox-cosplay-api.onrender.com/' },
           caption: "Guess who am i...",
           /* footer: `${global.BotName}`,
            buttons: buttons,
-           headerType: 4 */
-        }
+           headerType: 4 
+        } 
 
         await A17.sendMessage(m.chat, cosplybutton, { quoted: m }).catch(err => {
           return ('Error!')
@@ -6388,10 +6412,10 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
         await A17.sendMessage(m.chat, buttonssMessage, { quoted: m }).catch(err => {
           return ('Error!')
         })
-        break;
+        break; */ 
 
 
-      case 'feed':
+    /*  case 'feed':
       case 'meow':
       case 'tickle':
         if (isBan) return reply(mess.banned);
@@ -6412,7 +6436,7 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
         await A17.sendMessage(m.chat, buttonssMessages, { quoted: m }).catch(err => {
           return ('Error!')
         })
-        break;
+        break; */
 
 
 
@@ -6499,7 +6523,7 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
         break;
 
 
-      case 'hug': {
+    /*  case 'hug': {
 
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
@@ -6534,7 +6558,7 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
           console.log(error);
         }
       }
-        break;
+        break; */
 
 
       case 'dance': {
@@ -6576,7 +6600,7 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
 
 
       //
-      case 'kill': case 'pat': case 'lick': case 'kiss': case 'bite':
+    /*  case 'kill': case 'pat': case 'lick': case 'kiss': case 'bite':
       case 'bully': case 'bonk': case 'poke': case 'slap':
       case 'happy':
       case 'cuddle': case 'kick': {
@@ -6614,7 +6638,7 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
           console.log(error);
         }
       }
-        break;
+        break; */
 
 
       case 'yeet':
@@ -6678,7 +6702,7 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
       
       */
 
-
+/*
       case 'megumin':
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
@@ -6687,13 +6711,13 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
         ud = await axios.get('https://waifu.pics/api/sfw/megumin')
         /*var wbutsss = [
           {buttonId: `${prefix}megumin`, buttonText: {displayText: `>>`}, type: 1},
-               ] */
+               ]
         let buttonzMessage = {
           image: { url: ud.data.url },
           caption: `Here it is...`,
-          /*   footer: `${global.BotName}`,
+            footer: `${global.BotName}`,
                  buttons: wbutsss,
-            headerType: 4 */
+            headerType: 4 
         }
         await A17.sendMessage(m.chat, buttonzMessage, { quoted: m }).catch(err => {
           return ('Error!')
@@ -6711,19 +6735,19 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
         waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`)
         /* var wbuttsss = [
           {buttonId: `${prefix}awoo`, buttonText: {displayText: `>>`}, type: 1},
-          ] */
+          ] 
         let button1Messages = {
           image: { url: waifudd.data.url },
           caption: `Here it is...`,
           /*  footer: `${global.BotName}`,
           buttons: wbuttsss,
-          headerType: 2 */
+          headerType: 2 
 
         }
         await A17.sendMessage(m.chat, button1Messages, { quoted: m }).catch(err => {
           return ('Error!')
         })
-        break;
+        break; */
 
 
       case 'animewall2': case 'animewallpaper2':
@@ -7296,7 +7320,7 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
                       },
                       {
                         "name": "cta_url",
-                        "buttonParamsJson": `{"display_text":"Support Group","url":"https://github.com/trama-008","merchant_url":"https://github.com/trama-008"}`
+                        "buttonParamsJson": `{"display_text":"Support Group","url":"https://chat.whatsapp.com/BCUPpF7gKTg6Sx9y2WSIuF","merchant_url":"https://github.com/trama-008"}`
 
                       }
                     ]
