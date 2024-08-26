@@ -833,8 +833,33 @@ if (smallinput.includes('البوت') || smallinput.includes('بوتة')){
            'https://graph.org/file/820ab928174bcb86c9c3f.png',
            'https://graph.org/file/696c6e9280fa467335937.png',
            'https://graph.org/file/78bde4815154d19b06d2d.png',
-           'https://graph.org/file/0b64c74ce6113baec3a33.png'
-        
+           'https://graph.org/file/0b64c74ce6113baec3a33.png',
+			      'https://graph.org/file/7e8d17f659387584478ac.jpg',
+			      'https://graph.org/file/d4a54781880b401a86970.jpg',
+			      'https://graph.org/file/0e17335bb8b8afc025f99.jpg',
+			      'https://graph.org/file/681ba0df35e9fdc355291.jpg',
+			      'https://graph.org/file/bb876a60e337c87381c87.jpg',
+			      'https://graph.org/file/6ddbc98b5bc3ffd02b364.jpg',
+			      'https://graph.org/file/55895889cd60505c8f4e8.jpg',
+			      'https://graph.org/file/910d946786bf5286a3f20.jpg',
+			      'https://graph.org/file/9c6ed4caa89dac5e7414f.jpg',
+			      'https://graph.org/file/28b235fc315b27b5726a2.jpg',
+			      'https://graph.org/file/3ddbbc709ba63e3e08a65.jpg',
+			      'https://graph.org/file/8a8dc00290459b95b36d0.jpg',
+			      'https://graph.org/file/72487c8d213dc49f139e0.jpg',
+			      'https://graph.org/file/700b40f853991b124a0ef.jpg',
+			      'https://graph.org/file/9020d11a400fd54b04540.jpg',
+			      'https://graph.org/file/f59980f483cece3fd4638.jpg',
+			      'https://graph.org/file/f85db33c05d38ac6cc9fa.jpg',
+			      'https://graph.org/file/80317b68b50de8f47d4ef.jpg',
+			      'https://graph.org/file/d4d18b5a0ad2493fe5f4a.jpg',
+			      'https://graph.org/file/0d12db85aefd81a9358d8.jpg',
+			      'https://graph.org/file/ecbbb81ea6809ecdd1535.jpg',
+			      'https://graph.org/file/9115eae1148ce9157f54c.jpg',
+			      'https://graph.org/file/f9b4dbe1056bc19ab953c.jpg',
+			      'https://graph.org/file/f76ea29aa58eb7f70ca6a.jpg'
+			      
+			
             ];
         
             // اختيار رابط عشوائي
@@ -1908,11 +1933,11 @@ break;
 		    {
 if (isban) return reply (mess.banned);
 if (isBanChat) return reply (mess.bangc);
-	let memeURL = ['' ,
-		   '',
-		   '',
-		   '',
-		   ''
+if (!isyuki) {
+	let memeURL = ['https://graph.org/file/7e8d17f659387584478ac.jpg' ,
+		   'https://graph.org/file/681ba0df35e9fdc355291.jpg',
+		   'https://graph.org/file/9c6ed4caa89dac5e7414f.jpg'
+		
 		   ] ;
 
 		const randmeme = memeURL[math.floor(math.random()*memeURL.leangth)] ;
@@ -1921,8 +1946,10 @@ if (isBanChat) return reply (mess.bangc);
                  .webp() 
                  .toBuffer();
                A17.sendMessage(from, { image: webpBuffer }, { quoted: m });   
-           }
-             }	    
+	
+		}
+		    }
+             	    
  
 */
 
