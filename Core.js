@@ -1929,7 +1929,7 @@ break;
 
 ///////////// test test test test test test test test //////////////////////
 
-/ case 'ميمز' : case 'memes' :
+case 'ميمز' : case 'memes' :
 		    {
 if (isban) return reply (mess.banned);
 if (isBanChat) return reply (mess.bangc);
@@ -1951,7 +1951,7 @@ if (!isyuki) {
 		    }
              	    
  
-*/
+
 
 	///// nsfw nsfw nsfw nsfw nsfw nsfw nsfw nsfw nsfw////////////////////////////
  if (smallinput.includes('cock') || smallinput.includes('dick') || smallinput.includes('نيك') || smallinput.includes('boobs') || smallinput.includes('خول') || smallinput.includes('Transform') || smallinput.includes('سكس') || smallinput.includes('hentai') || smallinput.includes('شرموط') || smallinput.includes('sex') || smallinput.includes('انيك') || smallinput.includes('كسم') || smallinput.includes('سكس') || smallinput.includes('قضيب') || smallinput.includes('زبي')){
