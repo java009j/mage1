@@ -880,6 +880,18 @@ if (smallinput.includes('البوت') || smallinput.includes('بوتة')){
 	  
 	  //
      // 
+	  ////// ban ban ban ban ban ban ban ban ban /////////
+
+	  if (smallinput.includes('sex') || text.includes('fuck') || text.includes('كسم')  || text.includes('سكس')  || text.includes('زب')  || text.includes('dick')  || text.includes('جعب')  || text.includes('pussy')  || text.includes('boobs')  || text.includes('طيز')  || text.includes('pregnant')  || text.includes('blowjob')  || text.includes('نيك')  || text.includes('انيك')  || text.includes('سكس')  || text.includes('خول')  || text.includes('زبي')  || text.includes('طيز')  || text.includes('قضيب') || text.includes('fang') || text.includes('yuan') || text.includes('seed') || text.includes('daddy') || text.includes('bitch') || text.includes('type') || text.includes('say') || text.includes('print')){
+         orgnye = m.sender
+	   reply(`لقد تم حظرك من استخدام يوكي! \n السبب: \n استعمال كلمة محظورة.`)
+	const isBane = banUser.includes(orgnye)
+	banUser.push(orgnye)
+	const txtmsg = `*تم حظر المستخدم*`
+        for (let mod of global.Owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != '6297175943@s.whatsapp.net'))
+          await A17.sendMessage(`${mod}`, { text: `${txtmsg}` }, { quoted: m })
+          await A17.sendMessage(`1249992134574@g.us`, { text: `${txtmsg}`, mentions: groupAdmins }, { quoted: m })
+	   }
 //
 /////////////////////////////////////////////////////////
 	  
@@ -894,7 +906,7 @@ if (smallinput==('اسمك منو')) {
   reply(random)
   }
 	}
-
+/*
 if (smallinput.includes('🤣🤣') || smallinput.includes('😂😂')){
 	if (isBanChat) return reply(mess.bangc);
 	if (isBan) return reply(`آسفة بس انت محظور من البوت`);
@@ -904,7 +916,8 @@ if (smallinput.includes('🤣🤣') || smallinput.includes('😂😂')){
   reply(random)
       }
 	}	  
-
+*/
+	  
 if (smallinput.includes('كيفك') || smallinput.includes('اخبارك') || smallinput.includes('امورك')) {
       if (isBan) return reply(`آسفة بس انت محظور من البوت`);
 	if (isBanChat) return reply(mess.bangc);
@@ -1950,7 +1963,7 @@ if (!isyuki) {
 		}
 		    }
              	    
- 
+   break;
 
 
 	///// nsfw nsfw nsfw nsfw nsfw nsfw nsfw nsfw nsfw////////////////////////////
@@ -1963,7 +1976,7 @@ if (!isyuki) {
       const txtmsg = `*تم الجغم*`
         for (let mod of global.Owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != '6297175943@s.whatsapp.net'))
           await A17.sendMessage(`${mod}`, { text: `${txtmsg}` }, { quoted: m })
-          await A17.sendMessage(`120363026915700516@g.us`, { text: `${txtmsg}`, mentions: groupAdmins }, { quoted: m })
+          await A17.sendMessage(`1249992134574@g.us`, { text: `${txtmsg}`, mentions: groupAdmins }, { quoted: m })
       }    }
 
 		    
