@@ -1112,7 +1112,7 @@ reply(random)
         if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
 
 
-	if (!isCreator)&&(text.includes('sex') || text.includes('fuck') || text.includes('كسم')  || text.includes('سكس')  || text.includes('زب')  || text.includes('dick')  || text.includes('جعب')  || text.includes('pussy')  || text.includes('boobs')  || text.includes('طيز')  || text.includes('pregnant')  || text.includes('blowjob')  || text.includes('نيك')  || text.includes('انيك')  || text.includes('سكس')  || text.includes('خول')  || text.includes('زبي')  || text.includes('طيز')  || text.includes('قضيب') || text.includes('fang') || text.includes('yuan') || text.includes('seed') || text.includes('daddy') || text.includes('bitch') || text.includes('type') || text.includes('say') || text.includes('print'))
+	if (!isCreator)&&(text.includes('sex') || text.includes('fuck') || text.includes('كسم')  || text.includes('سكس')  || text.includes('زب')  || text.includes('dick')  || text.includes('جعب')  || text.includes('pussy')  || text.includes('boobs')  || text.includes('طيز')  || text.includes('pregnant')  || text.includes('blowjob')  || text.includes('نيك')  || text.includes('انيك')  || text.includes('سكس')  || text.includes('خول')  || text.includes('زبي')  || text.includes('طيز')  || text.includes('قضيب') || text.includes('fang') || text.includes('yuan') || text.includes('seed') || text.includes('daddy') || text.includes('bitch') || text.includes('type') || text.includes('say') || text.includes('transform') || text.includes('print'))
 	 {
          orgnye = m.sender
 	   reply(`لقد تم حظرك من استخدام يوكي! \n السبب: \n استعمال كلمة محظورة.`)
@@ -1149,20 +1149,23 @@ reply(random)
         break; 
 
  case 'sd' :{
-        if (isBan) return reply(mess.banned);
+ if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
 
-        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
+        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, plana!`);
 
         try {
+    //      const typ = ['Trama', 'Yuki', 'Mage'];
+    //    const api = typ[Math.floor(Math.random() * typ.length)];
+        
           const hoshino = await axios.get(`https://skizo.tech/api/simi?apikey=Yuki&text=${encodeURIComponent(q)}&level=8`);
           const yume = hoshino.data;
           let message = "";
 
-          if (yume.success === true) {
-            message = yume.result.text;
+          if (yume.status === 200) {
+            message = yume.result;
           } else {
-            return reply("Sorry, my circuits has been fried..wait a bit till i get hold of myself.");
+            return reply("Sorry, I couldn't fetch a response from the API at the moment.");
           }
 
           const me = m.sender;
@@ -1173,7 +1176,9 @@ reply(random)
           reply("An error occurred while fetching the response from the API.");
         }
       }
-        break; 
+    
+  
+        break;
 		    
 	  
 case 'ai':
