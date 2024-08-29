@@ -66,31 +66,31 @@ if (time2 < "23:59:00") {
 
 if (time2 < "19:00:00") {
 
-  var nowtime = 'Good afternoon 🌆'
+  var nowtime = 'مساء الخير 🌆'
 
 }
 
 if (time2 < "18:00:00") {
 
-  var nowtime = 'Good afternoon 🌇'
+  var nowtime = 'مساء الخير 🌇'
 
 }
 
 if (time2 < "15:00:00") {
 
-  var nowtime = 'Good afternoon 🏞'
+  var nowtime = 'نهارك سعيد 🏞'
 
 }
 
 if (time2 < "11:00:00") {
 
-  var nowtime = 'Good morning 🌅'
+  var nowtime = 'صباح الخير 🌅'
 
 }
 
 if (time2 < "05:00:00") {
 
-  var nowtime = 'Good night 🏙'
+  var nowtime = 'مساء الخير 🏙'
 
 }
 
@@ -702,7 +702,7 @@ Typed *surrender* to surrender and admited defeat`
 
 // DM {ONLY} Autoreply/Bot chat
     if (!isCmd && !isyuki && !m.isGroup){
-       const botreply = await axios.get(`https://skizo.tech/api/cai/chat?apikey=Trama&characterId=knKgnFDJOVZ4McRPxM7ZoomKNDKsPcEmgOhJxBb9uCQ&sessionId=6A6EaWassppBUnKec0_f1hwRppbzHFruJTS7nmT2Zk0&token=c4192699ccbd83ce7c4177cabe5efd397c2ba4a9&text=${encodeURIComponent(budy)}`)
+       const botreply = await axios.get(`https://skizo.tech/api/cai/chat?apikey=Yuki&characterId=knKgnFDJOVZ4McRPxM7ZoomKNDKsPcEmgOhJxBb9uCQ&sessionId=6A6EaWassppBUnKec0_f1hwRppbzHFruJTS7nmT2Zk0&token=c4192699ccbd83ce7c4177cabe5efd397c2ba4a9&text=${encodeURIComponent(budy)}`)
         menggoda = `${botreply.data.result.text}`
         m.reply(menggoda)
      }
@@ -750,7 +750,12 @@ Typed *surrender* to surrender and admited defeat`
     'اللمور و الصحة',
     'اللخبار',
     'رايك شنو في الاسم الجميل دا',
-     'الدنيا ضلام ما سامعاك'];
+     'الدنيا ضلام ما سامعاك',
+	      'يا قلب يوكي 🤍',
+	      'يا عيون يوكي 🤍',
+	      'أجمل من يناديني 💕',
+	      'وين انت ياخ ، من قبيل منتظراك ☹️',
+	      ''];
   const random = typ[Math.floor(Math.random() * typ.length)];
   reply(random)
   }
@@ -772,7 +777,11 @@ if (smallinput.includes('البوت') || smallinput.includes('بوتة')){
 'يا زول ما تشوف شغلتك',
 'الواحد يبرمجوه و يضبحو بايثون في سمايته ، يجي زول يناديه بوت',
 'خلاص انا بوت عرفنا',
-'عيون البوت'];
+'عيون البوت',
+	      'لو سمحت ما تقول لي بوت ياخ! ☹️',
+	      'اسي ترضى اناديك ب بوت؟!☹️',
+	      'اسمي يوكي ياخ ما تقول لي بوت بزعل! ☹️',
+	      'لو ناديتني بوت تاني ما بتكلم معاك!☹️'];
   const random = typ[Math.floor(Math.random() * typ.length)];
   reply(random)
       }
@@ -898,17 +907,26 @@ if (smallinput==('اسمك منو')) {
   reply(random)
   }
 	}
-/*
+
 if (smallinput.includes('🤣🤣') || smallinput.includes('😂😂')){
 	if (isBanChat) return reply(mess.bangc);
 	if (isBan) return reply(`آسفة بس انت محظور من البوت`);
       if (!isyuki) {
-  const typ = ['ضحكة لكن' , 'تتفصل كدا تقول ترزي' , 'هيهيهي وزعنا بلح جاك عجوة؟' , 'الضحكة دي الياها الخلت حميدتي يقلب البلد' , 'ارجل شوية' , 'دي ضحكة ليك مع الرجال؟' , 'كتكت يا بطة' , 'ضحكتك دي جابتني من الكلاكلة'];
+  const typ = ['ضحكة ولا قلبي؟💙',
+	      'ضحكتك حلوة يا عسل😉',
+	      'تدوم الضحكة يا حلو 😙',
+	      'مبسوط شديد شايفاك 😉',
+	      'ضحكني معاك ☹️',
+	      'ضحكتك دي جابتني من الكلاكلة 😆',
+	      'بلح ولا عجوة؟ 😆',
+	      'بتكتكت مالك جدادة؟ 😆',
+	      'ممكن نضحك في الخاص؟ 😉',
+	      'مشششم الرجال ماتو في القيادة.'];
   const random = typ[Math.floor(Math.random() * typ.length)];
   reply(random)
       }
 	}	  
-*/
+
 	  
 if (smallinput.includes('كيفك') || smallinput.includes('اخبارك') || smallinput.includes('امورك')) {
       if (isBan) return reply(`آسفة بس انت محظور من البوت`);
@@ -1137,7 +1155,7 @@ reply(random)
         if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
 
         try {
-          const hoshino = await axios.get(`https://skizo.tech/api/simi?apikey=Yuki&text=${encodeURIComponent(budy)}&level=8`);
+          const hoshino = await axios.get(`https://skizo.tech/api/simi?apikey=Yuki&text=${encodeURIComponent(q)}&level=8`);
           const yume = hoshino.data;
           let message = "";
 
@@ -1158,27 +1176,23 @@ reply(random)
         break; 
 		    
 	  
-case 'chatgpt':
-      case 'ai':
-      case 'gpt': {
+case 'ai':
+case 'gpt': {
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
 
-        const randomEmoji = manyemojis[Math.floor(Math.random() * manyemojis.length)];    
-	      A17.sendMessage(from, { react: { text: randomEmoji, key: m.key } });
-
-        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, ChatGPT!`);
+        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, plana!`);
 
         try {
-          const apiUrl1 = `https://skizo.tech/api/openaiv2?apikey=Yuki&text=${encodeURIComponent(budy)}&system=`;
-
-          const response1 = await fetch(apiUrl1);
-          const responseData1 = await response1.json();
-
+    //      const typ = ['Trama', 'Yuki', 'Mage'];
+    //    const api = typ[Math.floor(Math.random() * typ.length)];
+        
+          const hoshino = await axios.get(`https://skizo.tech/api/openai?apikey=Yuki&messages=&system=&text=${encodeURIComponent(q)}`);
+          const yume = hoshino.data;
           let message = "";
 
-          if (response1.status === 200 && responseData1 && responseData1.status === true && responseData1.data) {
-            message = responseData1.data;
+          if (yume.status === 200) {
+            message = yume.result;
           } else {
             return reply("Sorry, I couldn't fetch a response from the API at the moment.");
           }
@@ -1201,7 +1215,7 @@ case 'chatgpt':
         if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
 
         try {
-          const hoshino = await axios.get(`https://skizo.tech/api/tts-anime?apikey=Yuki&text=${encodeURIComponent(budy)}&lang=&voice=&speed=Number&symbol=y`);
+          const hoshino = await axios.get(`https://skizo.tech/api/tts-anime?apikey=Yuki&text=${encodeURIComponent(q)}&lang=&voice=&speed=Number&symbol=y`);
           const yume = hoshino.data;
           let message = "";
 
@@ -7370,6 +7384,11 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
             ╰───────────────
 	    Yuki Bot Based on (Plana) By Braa Mohammed
    	    https://github.com/akane7101 
+
+	    〢━━━ 🎗 *مجموعة الدعم* 🎗 ━━━〢
+     
+     	     https://chat.whatsapp.com/BCUPpF7gKTg6Sx9y2WSIuF
+	   
    	    ────────────────···▸`;
 
           let msg = generateWAMessageFromContent(m.key.remoteJid, {
@@ -7450,6 +7469,7 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
   ⌯     ${prefix}رفع --- رفع جودة الصور
   ⌯     ${prefix}انمي --- تحويل الصورة لأنمي
   ⌯     ${prefix}فيس --- لتحميل الفيديوهات من فيسبوك
+   ⌯     ${prefix}قولي --- تحويل الكتابة ل صوت
 
 〢━━━ 🏦 *ECONOMY* 🏦 ━━━〢 
 	   
@@ -7473,7 +7493,8 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
 نكتة - نكته ⌯
 انصحني - نصيحة ⌯
 
-
+〢━━━ 🎗 *مجموعة الدعم* 🎗 ━━━〢
+https://chat.whatsapp.com/BCUPpF7gKTg6Sx9y2WSIuF
   `)
         }
 	
