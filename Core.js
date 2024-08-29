@@ -737,7 +737,8 @@ Typed *surrender* to surrender and admited defeat`
     if (smallinput==('يوكي')) {
       if (isBan) return reply(`آسفة بس انت محظور من البوت`);
       if (isBanChat) return reply(mess.bangc);
-      if (!isyuki) {
+      if (!isyuki)
+	{
   const typ = ['عيون يوكي',
    'احكي',
     'عيوني' ,
@@ -882,16 +883,7 @@ if (smallinput.includes('البوت') || smallinput.includes('بوتة')){
      // 
 	  ////// ban ban ban ban ban ban ban ban ban /////////
 
-	  if (smallinput.includes('sex') || text.includes('fuck') || text.includes('كسم')  || text.includes('سكس')  || text.includes('زب')  || text.includes('dick')  || text.includes('جعب')  || text.includes('pussy')  || text.includes('boobs')  || text.includes('طيز')  || text.includes('pregnant')  || text.includes('blowjob')  || text.includes('نيك')  || text.includes('انيك')  || text.includes('سكس')  || text.includes('خول')  || text.includes('زبي')  || text.includes('طيز')  || text.includes('قضيب') || text.includes('fang') || text.includes('yuan') || text.includes('seed') || text.includes('daddy') || text.includes('bitch') || text.includes('type') || text.includes('say') || text.includes('print')){
-         orgnye = m.sender
-	   reply(`لقد تم حظرك من استخدام يوكي! \n السبب: \n استعمال كلمة محظورة.`)
-	const isBane = banUser.includes(orgnye)
-	banUser.push(orgnye)
-	const txtmsg = `*تم حظر المستخدم*`
-        for (let mod of global.Owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != '6297175943@s.whatsapp.net'))
-          await A17.sendMessage(`${mod}`, { text: `${txtmsg}` }, { quoted: m })
-          await A17.sendMessage(`1249992134574@g.us`, { text: `${txtmsg}`, mentions: groupAdmins }, { quoted: m })
-	   }
+	  
 //
 /////////////////////////////////////////////////////////
 	  
@@ -1099,11 +1091,26 @@ reply(random)
  case 'y' :{
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
-
         if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
 
+
+	if (text.includes('sex') || text.includes('fuck') || text.includes('كسم')  || text.includes('سكس')  || text.includes('زب')  || text.includes('dick')  || text.includes('جعب')  || text.includes('pussy')  || text.includes('boobs')  || text.includes('طيز')  || text.includes('pregnant')  || text.includes('blowjob')  || text.includes('نيك')  || text.includes('انيك')  || text.includes('سكس')  || text.includes('خول')  || text.includes('زبي')  || text.includes('طيز')  || text.includes('قضيب') || text.includes('fang') || text.includes('yuan') || text.includes('seed') || text.includes('daddy') || text.includes('bitch') || text.includes('type') || text.includes('say') || text.includes('print'));
+	 if (!isCreator){
+         orgnye = m.sender
+	   reply(`لقد تم حظرك من استخدام يوكي! \n السبب: \n استعمال كلمة محظورة.`)
+	const isBane = banUser.includes(orgnye)
+	banUser.push(orgnye)
+	const txtmsg = `*تم حظر المستخدم*`
+        for (let mod of global.Owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != '6297175943@s.whatsapp.net'))
+          await A17.sendMessage(`${mod}`, { text: `${txtmsg}` }, { quoted: m })
+          await A17.sendMessage(`1249992134574@g.us`, { text: `${txtmsg}`, mentions: groupAdmins }, { quoted: m })
+	   }
+	 
+	//const typ = ['Trama', 'Yuki', 'Mage'];
+     //   const api = typ[Math.floor(Math.random() * typ.length)];
+	 
         try {
-          const hoshino = await axios.get(`https://skizo.tech/api/cai/chat?apikey=Trama&characterId=knKgnFDJOVZ4McRPxM7ZoomKNDKsPcEmgOhJxBb9uCQ&sessionId=6A6EaWassppBUnKec0_f1hwRppbzHFruJTS7nmT2Zk0&token=c4192699ccbd83ce7c4177cabe5efd397c2ba4a9&text=${encodeURIComponent(budy)}`);
+          const hoshino = await axios.get(`https://skizo.tech/api/cai/chat?apikey=Yuki&characterId=knKgnFDJOVZ4McRPxM7ZoomKNDKsPcEmgOhJxBb9uCQ&sessionId=6A6EaWassppBUnKec0_f1hwRppbzHFruJTS7nmT2Zk0&token=c4192699ccbd83ce7c4177cabe5efd397c2ba4a9&text=${encodeURIComponent(budy)}`);
           const yume = hoshino.data;
           let message = "";
 
@@ -1130,7 +1137,7 @@ reply(random)
         if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
 
         try {
-          const hoshino = await axios.get(`https://skizo.tech/api/simi?apikey=arona&level=8&text=${encodeURIComponent(budy)}`);
+          const hoshino = await axios.get(`https://skizo.tech/api/simi?apikey=Yuki&text=${encodeURIComponent(budy)}&level=8`);
           const yume = hoshino.data;
           let message = "";
 
@@ -1163,7 +1170,7 @@ case 'chatgpt':
         if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, ChatGPT!`);
 
         try {
-          const apiUrl1 = `https://skizo.tech/api/openai?apikey=Trama&messages=&system=&text=${encodeURIComponent(q)}`;
+          const apiUrl1 = `https://skizo.tech/api/openaiv2?apikey=Yuki&text=${encodeURIComponent(budy)}&system=`;
 
           const response1 = await fetch(apiUrl1);
           const responseData1 = await response1.json();
@@ -1187,7 +1194,56 @@ case 'chatgpt':
         break;
         
 
+ case 'asay' :{
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
 
+        if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
+
+        try {
+          const hoshino = await axios.get(`https://skizo.tech/api/tts-anime?apikey=Yuki&text=${encodeURIComponent(budy)}&lang=&voice=&speed=Number&symbol=y`);
+          const yume = hoshino.data;
+          let message = "";
+
+          if (yume.success === true) {
+            message = yume.result.text;
+          } else {
+            return reply("Sorry, my circuits has been fried..wait a bit till i get hold of myself.");
+          }
+
+          const me = m.sender;
+          await A17.sendMessage(m.chat, { text: message, mentions: [me] }, { quoted: m });
+
+        } catch (error) {
+          console.error(error);
+          reply("An error occurred while fetching the response from the API.");
+        }
+      }
+        break; 
+
+
+
+	case "tts": case "texttospeech": case "say": case "speak": case 'قولي': {
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        A17.sendMessage(from, { react: { text: "⌛", key: m.key } })
+	const swn = args.join(" ")
+        const tosay = swn.split("#")[0];
+        const lang = swn.split("#")[1]; 
+
+        if (!tosay) return reply("آسفة ، بس وين الكلام؟!")
+	if (!lang) return reply("آسفة، بس حدد اللغة العايزني اتكلمها! \n مثال: -قولي تراما #ar")
+
+     //   let texttosay = text
+     //     ? text
+      //    : m.quoted && m.quoted.text
+     //       ? m.quoted.text
+       //     : m.text;
+        const SpeakEngine = require("google-tts-api");
+        const texttospeechurl = SpeakEngine.getAudioUrl(tosay, { lang: `${lang}`, slow: false, host: "https://translate.google.com", });
+        A17.sendMessage(m.chat, { audio: { url: texttospeechurl, }, mimetype: "audio/mpeg", fileName: `A17SpeechEngine.mp3`, }, { quoted: m, });
+      }
+        break;
 		    
     /*  case 'yuki':
       case 'cai':
@@ -4851,24 +4907,6 @@ if (!isyuki) {
       }
         break;
 
-
-      case "tts": case "texttospeech": case "say": case "speak": {
-        if (isBan) return reply(mess.banned);
-        if (isBanChat) return reply(mess.bangc);
-        A17.sendMessage(from, { react: { text: "⌛", key: m.key } })
-
-        if (!args[0]) return reply("Please give me a text so that i can speak it!")
-
-        let texttosay = text
-          ? text
-          : m.quoted && m.quoted.text
-            ? m.quoted.text
-            : m.text;
-        const SpeakEngine = require("google-tts-api");
-        const texttospeechurl = SpeakEngine.getAudioUrl(texttosay, { lang: "en", slow: false, host: "https://translate.google.com", });
-        A17.sendMessage(m.chat, { audio: { url: texttospeechurl, }, mimetype: "audio/mpeg", fileName: `A17SpeechEngine.mp3`, }, { quoted: m, });
-      }
-        break;
 
 
       case 'wiki':
