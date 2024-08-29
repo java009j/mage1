@@ -7138,12 +7138,13 @@ case 'sticker': case 's': case 'س' : case 'ستيكر': {
           await A17.sendMessage(from, { react: { text: "✨", key: m.key } });
 
 
-          const helpMenuText = `\n Hi *${pushname}* Dear...!! ${nowtime} ,
-  
-Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly by TRAMA.
+          const helpMenuText = `\n 
+	مرحبآ يا *${pushname}* ${nowtime}🤍 
 
  لعرض قائمة المودات أرسل " ${prefix}م " في الشات
 
+اذا عايز تتكلم معاي أرسل:
+ ${prefix}يوكي + "الكلام" 🌸
  
              ⌯  Date : ${kaidate}
           
@@ -7151,7 +7152,7 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
             〢━ 〄 Bot Info 〄 ━〢
           
    ⌯  My prefix is :  ${prefix}
-   ⌯  Bot usr name : ${pushname} 
+   ⌯  Bot user name : ${pushname} 
    ⌯  Owner name : ${global.OwnerName} 
    ⌯  Runtime : ${runtime(process.uptime())} 
    ⌯  RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
@@ -7366,7 +7367,10 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
             ⌯   🍁 Type ${prefix}help to get
             ⌯     full command list.
             ┬│▸
-            ╰────────────···▸`;
+            ╰───────────────
+	    Yuki Bot Based on (Plana) By Braa Mohammed
+   	    https://github.com/akane7101 
+   	    ────────────────···▸`;
 
           let msg = generateWAMessageFromContent(m.key.remoteJid, {
             viewOnceMessage: {
@@ -7398,7 +7402,7 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
                       },
                       {
                         "name": "cta_url",
-                        "buttonParamsJson": `{"display_text":"Support Group","url":"https://chat.whatsapp.com/BCUPpF7gKTg6Sx9y2WSIuF","merchant_url":"https://github.com/trama-008"}`
+                        "buttonParamsJson": `{"display_text":"Support Group","url":"https://github.com/trama-008","merchant_url":"https://chat.whatsapp.com/BCUPpF7gKTg6Sx9y2WSIuF"}`
 
                       }
                     ]
@@ -7634,7 +7638,7 @@ Howdy, my name is "Yuki" a WhatsApp bot forked (It's legeal don't worry) mostly 
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           A17.sendMessage(from, { react: { text: "❌", key: m.key } })
-          reply(`عذراً ، هذا الأمر غير موجود \n أرسل -ا لعرض قائمة الأوامر!`)
+          reply(`عذراً ، هذا الأمر غير مبرمج! \n لعرض قائمة الأوامر أرسل -m !`)
 
         }
 
