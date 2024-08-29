@@ -1158,7 +1158,7 @@ reply(random)
     //      const typ = ['Trama', 'Yuki', 'Mage'];
     //    const api = typ[Math.floor(Math.random() * typ.length)];
         
-          const hoshino = await axios.get(`https://skizo.tech/api/simi?apikey=Yuki&text=${encodeURIComponent(q)}&level=8`);
+          const hoshino = await axios.get(`http://www.simsimi.com/getRealtimeReq?uuid=wcuvljWyNZp501RVwi7dtdrHrhTw8iBZVuTCCU5bV1w&lc=th&ft=1&reqText=${encodeURIComponent(q)}`);
           const yume = hoshino.data;
           let message = "";
 
