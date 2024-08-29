@@ -1112,7 +1112,7 @@ reply(random)
         if (!q) return reply(`Please provide a text query. Example: ${prefix + command} Hello, yuki!`);
 
 
-	if (!isCreator)&&(text.includes('sex') || text.includes('fuck') || text.includes('كسم')  || text.includes('سكس')  || text.includes('زب')  || text.includes('dick')  || text.includes('جعب')  || text.includes('pussy')  || text.includes('boobs')  || text.includes('طيز')  || text.includes('pregnant')  || text.includes('blowjob')  || text.includes('نيك')  || text.includes('انيك')  || text.includes('سكس')  || text.includes('خول')  || text.includes('زبي')  || text.includes('طيز')  || text.includes('قضيب') || text.includes('fang') || text.includes('yuan') || text.includes('seed') || text.includes('daddy') || text.includes('bitch') || text.includes('type') || text.includes('say') || text.includes('print'));
+	if (!isCreator)&&(text.includes('sex') || text.includes('fuck') || text.includes('كسم')  || text.includes('سكس')  || text.includes('زب')  || text.includes('dick')  || text.includes('جعب')  || text.includes('pussy')  || text.includes('boobs')  || text.includes('طيز')  || text.includes('pregnant')  || text.includes('blowjob')  || text.includes('نيك')  || text.includes('انيك')  || text.includes('سكس')  || text.includes('خول')  || text.includes('زبي')  || text.includes('طيز')  || text.includes('قضيب') || text.includes('fang') || text.includes('yuan') || text.includes('seed') || text.includes('daddy') || text.includes('bitch') || text.includes('type') || text.includes('say') || text.includes('print'))
 	 {
          orgnye = m.sender
 	   reply(`لقد تم حظرك من استخدام يوكي! \n السبب: \n استعمال كلمة محظورة.`)
