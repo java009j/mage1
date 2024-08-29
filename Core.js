@@ -2017,21 +2017,19 @@ case 'ميمز' : case 'memes' :
 if (isban) return reply (mess.banned);
 if (isBanChat) return reply (mess.bangc);
 if (!isyuki) {
-	let memeURL = ['https://graph.org/file/7e8d17f659387584478ac.jpg' ,
+	let memeurl = ['https://graph.org/file/7e8d17f659387584478ac.jpg' ,
 		   'https://graph.org/file/681ba0df35e9fdc355291.jpg',
-		   'https://graph.org/file/9c6ed4caa89dac5e7414f.jpg'
-		
-		   ] ;
+		   'https://graph.org/file/9c6ed4caa89dac5e7414f.jpg'] ;
 
-		const randmeme = memeURL[math.floor(math.random()*memeURL.leangth)] ;
-		let media = await getBuffer(randmeme);
+		const randomeme = memeurl[Math.floor(Math.random() * memeurl.length)];
+                let media = await getBuffer(randomeme);
                 const webpBuffer = await sharp(media)
                  .webp() 
                  .toBuffer();
+               // Send sticker usng A17 libray (replace with your actual function)
                A17.sendMessage(from, { image: webpBuffer }, { quoted: m });   
-	
-		}
-		    }
+           }
+             }
              	    
    break;
 
