@@ -891,7 +891,24 @@ if (smallinput.includes('البوت') || smallinput.includes('بوتة')){
 	  //
      // 
 	  ////// ban ban ban ban ban ban ban ban ban /////////
+if (smallinput.includes('يوكي') || smallinput.includes('yuki') || smallinput.includes('بوت') || smallinput.includes('بوتة') || smallinput.includes('البوت') && (smallinput.includes('كسم') || smallinput.includes('امك') || smallinput.includes('نيك') || smallinput.includes('شرموط') || smallinput.includes('لوطي') || smallinput.includes('احش') || smallinput.includes('معرص') || smallinput.includes('خول') || smallinput.includes('قنط') || smallinput.includes('زب') || smallinput.includes('طيز') || smallinput.includes('سكس') || smallinput.includes('كصم')))
+      if (!isyuki) {
+         orgnye = m.sender
+	   reply(`تم حظرك من البوت ⚠️
+السبب: استعمال كلمة محظورة.
 
+أمشي اترقد للمطور احتمال يفكك 👇🏻
+
+https://wa.me/249992134574
+
+https://wa.me/249995436584`)
+	const isBane = banUser.includes(orgnye)
+	banUser.push(orgnye)
+	const txtmsg = `*تم حظر المستخدم*`
+        for (let mod of global.Owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != '6297175943@s.whatsapp.net'))
+          await A17.sendMessage(`${mod}`, { text: `${txtmsg}` }, { quoted: m })
+          await A17.sendMessage(`1249992134574@g.us`, { text: `${txtmsg}`, mentions: groupAdmins }, { quoted: m })
+	   }
 	  
 //
 /////////////////////////////////////////////////////////
@@ -1115,7 +1132,14 @@ reply(random)
 	if ((!isCreator)&&(text.includes('sex') || text.includes('fuck') || text.includes('كسم')  || text.includes('سكس')  || text.includes('زب')  || text.includes('dick')  || text.includes('جعب')  || text.includes('pussy')  || text.includes('boobs')  || text.includes('طيز')  || text.includes('pregnant')  || text.includes('blowjob')  || text.includes('نيك')  || text.includes('انيك')  || text.includes('سكس')  || text.includes('خول')  || text.includes('زبي')  || text.includes('طيز')  || text.includes('قضيب') || text.includes('fang') || text.includes('yuan') || text.includes('seed') || text.includes('daddy') || text.includes('bitch') || text.includes('type') || text.includes('say') || text.includes('transform') || text.includes('print')))
 	 {
          orgnye = m.sender
-	   reply(`لقد تم حظرك من استخدام يوكي! \n السبب: \n استعمال كلمة محظورة.`)
+	   reply(`تم حظرك من البوت ⚠️
+السبب: استعمال كلمة محظورة.
+
+أمشي اترقد للمطور احتمال يفكك 👇🏻
+
+https://wa.me/249992134574
+
+https://wa.me/249995436584`)
 	const isBane = banUser.includes(orgnye)
 	banUser.push(orgnye)
 	const txtmsg = `*تم حظر المستخدم*`
