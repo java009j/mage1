@@ -2022,9 +2022,31 @@ case 'ميمز' : case 'memes' :
 if (isBan) return reply (mess.banned);
 if (isBanChat) return reply (mess.bangc);
 if (!isyuki) {
-	let memeurl = ['https://graph.org/file/7e8d17f659387584478ac.jpg' ,
-		   'https://graph.org/file/681ba0df35e9fdc355291.jpg',
-		   'https://graph.org/file/9c6ed4caa89dac5e7414f.jpg'] ;
+	let memeurl = ['https://graph.org/file/e93ff1f90dd2463bf9b29.jpg' ,
+		   'https://graph.org/file/13bcf3b903c01f9477d47.jpg',
+		 'https://graph.org/file/b14144880a26badd5e10f.jpg',
+		       'https://graph.org/file/ee948943e19bc3ae6b029.jpg',
+		       'https://graph.org/file/fdaafa00770b488de6ab6.jpg',
+		       'https://graph.org/file/03fb71c651f274c386876.jpg',
+		       'https://graph.org/file/945f755ba7fd624f15fe1.jpg',
+		       'https://graph.org/file/acfb9d58ccba7d7384541.jpg',
+		       'https://graph.org/file/55fff398ea8535686dc11.jpg',
+		       'https://graph.org/file/cfda0fa13ca5d1ac0342b.jpg',
+		       'https://graph.org/file/93189f1dcc4318de76d09.jpg',
+		       'https://graph.org/file/6d390d85eb45235f16016.jpg',
+		       'https://graph.org/file/b69c10a85cc5f498149a8.jpg',
+		       'https://graph.org/file/749d9be0ae7b5d8a02c2b.jpg',
+		       'https://graph.org/file/060225c9e50d5ee2dedbc.jpg',
+		       'https://graph.org/file/503c73b0d7f27672e09e0.jpg',
+		       'https://graph.org/file/a115b916e123dda0f0692.jpg',
+		       'https://graph.org/file/b28c77f7725eccc9f5595.jpg',
+		       'https://graph.org/file/47023fb1758ac69b695f8.jpg',
+		       'https://graph.org/file/c757b078be1dff19d6748.jpg',
+		       'https://graph.org/file/659d7e34c040be132664b.jpg',
+		       'https://graph.org/file/864c2a5a19a0ec76e8b8f.jpg',
+		       'https://graph.org/file/1d3e8c34efebe29601655.jpg',
+		       'https://graph.org/file/f625ebefc8f1664e8175b.jpg'
+		           ] ;
 	
 		const randomeme = memeurl[Math.floor(Math.random() * memeurl.length)];
                 let media = await getBuffer(randomeme);
