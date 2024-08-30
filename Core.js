@@ -891,8 +891,8 @@ if (smallinput.includes('البوت') || smallinput.includes('بوتة')){
 	  //
      // 
 	  ////// ban ban ban ban ban ban ban ban ban /////////
-if (smallinput.includes('يوكي') || smallinput.includes('yuki') || smallinput.includes('بوت') || smallinput.includes('بوتة') || smallinput.includes('البوت') && (smallinput.includes('كسم') || smallinput.includes('امك') || smallinput.includes('نيك') || smallinput.includes('شرموط') || smallinput.includes('لوطي') || smallinput.includes('احش') || smallinput.includes('معرص') || smallinput.includes('خول') || smallinput.includes('قنط') || smallinput.includes('زب') || smallinput.includes('طيز') || smallinput.includes('سكس') || smallinput.includes('كصم')))
-      if (!isyuki) {
+if ((smallinput.includes('يوكي') || smallinput.includes('yuki') || smallinput.includes('بوت') || smallinput.includes('بوتة') || smallinput.includes('البوت')) && (smallinput.includes('كسم') || smallinput.includes('امك') || smallinput.includes('نيك') || smallinput.includes('شرموط') || smallinput.includes('لوطي') || smallinput.includes('احش') || smallinput.includes('معرص') || smallinput.includes('خول') || smallinput.includes('قنط') || smallinput.includes('زب') || smallinput.includes('طيز') || smallinput.includes('سكس') || smallinput.includes('كصم')))
+	{
          orgnye = m.sender
 	   reply(`تم حظرك من البوت ⚠️
 السبب: استعمال كلمة محظورة.
